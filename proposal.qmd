@@ -1,7 +1,7 @@
 ---
 title: "Project 2"
 subtitle: "Proposal"
-authors: ""
+authors: "Katie Riley, Basil-Anne Stackpole, and Cassie Minicucci"
 format: html
 editor: visual
 ---
@@ -23,8 +23,14 @@ library(tidyverse)
 ## read data 
 ```
 
-
 ## Reason for Choosing this Dataset
 
-
 ## Questions and Analysis Plan
+
+**Our Project: We intend to examine the United States's individual state constitutions for the frequency of specific keywords and visualize these onto an interactive map of the United States which allows the user to adjust for time, beginning with the 13 colonies and adding more states as time continues and more states are formed.**
+
+**Research question:** Does the time a state came into being affect the keywords used in its Constitution?
+
+In-depth proposal and motivations:
+
+In order to better understand the political and legal differences within states, especially the differences between the states that were a part of the original thirteen colonies and those who were not, we aim to analyze the constitutions of all fifty US states for certain keywords: "freedom," "liberty," "welfare," "consent," "prohibit," "equality," and "rights." Once we ascertain the frequency of these keywords within each constitution, we will create seven different maps of the United States (one for each keyword) colored by the frequency of the keyword. This will help us understand the way language is used in different state constitutions. We will then make these maps interactive using the variable of time; we hope to use the time scale to show when different states came into being, starting with the original thirteen colonies. This will help us understand if the time a state was ratified has a large effect on the language used in the constitution. 
