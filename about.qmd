@@ -1,7 +1,7 @@
 ---
-title: "Your project title"
+title: "State Constitution Analysis"
 format: html
 editor: visual
 ---
 
-This project was developed by XX. For [MATH/STAT241](https://aallorant.github.io/math241s24/) at Reed College. The team is comprised of the following team members.
+This project was developed by Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole. For [MATH/STAT241](https://aallorant.github.io/math241s24/) at Reed College. The team is comprised of Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole.
