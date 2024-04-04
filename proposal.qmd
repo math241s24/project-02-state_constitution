@@ -42,9 +42,9 @@ Week 1 (April 7th -13th)
 
 -   Establish a process to scrape the individual constitutions from state government websites and convert them into tidy data frames, excluding all text from the website not in the constitution (Basil-Anne)
 
--   Replicate this process for all 50 states (Each team member uses the process finalized in the previous step to complete a portion of the states, each person will be responsible for at least 15 states)
+-   Replicate this process for all 50 states (Each team member uses the process finalized in the previous step to complete a portion of the states, each person will be responsible for at least 15 states) (Katie, Cassie, Basil-Anne)
 
--   Run analysis on each new dataset using the key words (this will be the same process as the previous step where each team member takes a portion of the states and follows the same procedure)
+-   Run analysis on each new dataset using the key words (this will be the same process as the previous step where each team member takes a portion of the states and follows the same procedure) (Katie, Cassie, Basil-Anne)
 
     -   This should result in data frames for each state with columns indicating the appearances of each keyword
 
@@ -52,9 +52,9 @@ Week 2 (14th - 20th)
 
 -   Join the separate state data frames into one dataframe using the key words (Basil-Anne)
 
--   Create interactive maps for the 7 key words (each team member will take 2 maps following the same workflow)
+-   Create interactive maps for the 7 key words (each team member will take 2 maps following the same workflow) (Katie, Cassie, Basil-Anne)
 
--   Begin working on Presentation Slides (Katie)
+-   Begin working on Presentation Slides (Katie) and begin write-up (Cassie)
 
 Week 3 (April 21st - 27th)
 
