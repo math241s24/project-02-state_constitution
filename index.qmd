@@ -1,7 +1,7 @@
 ---
-title: ""
+title: "State Constitution Analysis"
 subtitle: "Project 2"
-author: ""
+author: "Cassie Minicucci, Katie Riley, Basil-Anne Stackpole"
 format: html
 editor: visual
 execute:
