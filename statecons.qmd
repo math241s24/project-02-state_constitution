@@ -1,0 +1,129 @@
+---
+title: "State_constitutions"
+format: html
+editor: visual
+---
+
+## List Of States
+
+Connecticut (Basil-Anne)
+
+Delaware: <https://avalon.law.yale.edu/18th_century/de02.asp> (Basil-Anne)
+
+Georgia: <https://avalon.law.yale.edu/18th_century/ga02.asp> (Katie)
+
+Maryland: <https://avalon.law.yale.edu/17th_century/ma02.asp> (Katie)
+
+Massachusetts: (Basil-Anne)
+
+New Hampshire: <https://avalon.law.yale.edu/18th_century/nh09.asp> (Katie)
+
+New Jersey: <https://avalon.law.yale.edu/18th_century/nj15.asp> (Katie)
+
+New York: <https://avalon.law.yale.edu/18th_century/ny01.asp> (Cassie)
+
+North Carolina: <https://avalon.law.yale.edu/18th_century/nc07.asp> (Cassie)
+
+Pennsylvania: <https://avalon.law.yale.edu/18th_century/pa08.asp> (Cassie)
+
+Rhode Island: (Basil-Anne)
+
+South Carolina: <https://avalon.law.yale.edu/18th_century/sc02.asp> (Cassie)
+
+Virginia: (Basil-Anne)
+
+## Connecticut
+
+```{r}
+
+```
+
+## Delaware
+
+```{r}
+library(rvest)
+library(dplyr)
+
+de_url <- "https://avalon.law.yale.edu/18th_century/de02.asp"
+de_html <- read_html(de_url)
+
+de_text <- html_text(de_html)
+
+de_con <- data.frame(word = unlist(strsplit(de_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude <- c(1:54, 3721:3796)
+
+de_con_tidy <- de_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
+
+```
+
+## Georgia
+
+```{r}
+
+```
+
+## Maryland
+
+```{r}
+
+```
+
+## Massachusetts
+
+```{r}
+
+```
+
+## New Hampshire
+
+```{r}
+
+```
+
+## New Jersey
+
+```{r}
+
+```
+
+## New York
+
+```{r}
+
+```
+
+## North Carolina
+
+```{r}
+
+```
+
+## Pennsylvania
+
+```{r}
+
+```
+
+## Rhode Island
+
+```{r}
+
+```
+
+## South Carolina
+
+```{r}
+
+```
+
+## Virginia
+
+```{r}
+
+```
+
+## 
