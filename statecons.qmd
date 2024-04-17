@@ -94,18 +94,68 @@ de_con_tidy <- de_con %>%
 
 ```{r}
 
+library(rvest)
+library(dplyr)
+
+ny_url <- "https://avalon.law.yale.edu/18th_century/ny01.asp"
+ny_html <- read_html(ny_url)
+
+ny_text <- html_text(ny_html)
+
+ny_con <- data.frame(word = unlist(strsplit(ny_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude <- c(1:68, 7813:8781)
+
+ny_con_tidy <- ny_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
+
+
 ```
 
 ## North Carolina
 
 ```{r}
 
+library(rvest)
+library(dplyr)
+
+nc_url <- "https://avalon.law.yale.edu/18th_century/nc07.asp"
+nc_html <- read_html(nc_url)
+
+nc_text <- html_text(nc_html)
+
+nc_con <- data.frame(word = unlist(strsplit(nc_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude <- c(1:58, 3991:4231)
+
+nc_con_tidy <- nc_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
 ```
 
 ## Pennsylvania
 
 ```{r}
 
+library(rvest)
+library(dplyr)
+
+pa_url <- "https://avalon.law.yale.edu/18th_century/pa08.asp"
+pa_html <- read_html(pa_url)
+
+pa_text <- html_text(pa_html)
+
+pa_con <- data.frame(word = unlist(strsplit(pa_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude <- c(1:57, 6196:6533)
+
+pa_con_tidy <- pa_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
 ```
 
 ## Rhode Island
@@ -117,7 +167,22 @@ de_con_tidy <- de_con %>%
 ## South Carolina
 
 ```{r}
+library(rvest)
+library(dplyr)
 
+sc_url <- "https://avalon.law.yale.edu/18th_century/sc02.asp"
+sc_html <- read_html(sc_url)
+
+sc_text <- html_text(sc_html)
+
+sc_con <- data.frame(word = unlist(strsplit(sc_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude <- c(1:58, 5639:5880)
+
+sc_con_tidy <- sc_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
 ```
 
 ## Virginia
