@@ -6,7 +6,7 @@ editor: visual
 
 ## List Of States
 
-Connecticut (Basil-Anne)
+Connecticut: <https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm> (Basil-Anne)
 
 Delaware: <https://avalon.law.yale.edu/18th_century/de02.asp> (Basil-Anne)
 
@@ -14,7 +14,7 @@ Georgia: <https://avalon.law.yale.edu/18th_century/ga02.asp> (Katie)
 
 Maryland: <https://avalon.law.yale.edu/17th_century/ma02.asp> (Katie)
 
-Massachusetts: (Basil-Anne)
+Massachusetts: <http://www.nhinet.org/ccs/docs/ma-1780.htm> (Basil-Anne)
 
 New Hampshire: <https://avalon.law.yale.edu/18th_century/nh09.asp> (Katie)
 
@@ -26,15 +26,30 @@ North Carolina: <https://avalon.law.yale.edu/18th_century/nc07.asp> (Cassie)
 
 Pennsylvania: <https://avalon.law.yale.edu/18th_century/pa08.asp> (Cassie)
 
-Rhode Island: (Basil-Anne)
+Rhode Island: <https://www.wordservice.org/State%20Constitutions/usa1031.htm> (Basil-Anne)
 
 South Carolina: <https://avalon.law.yale.edu/18th_century/sc02.asp> (Cassie)
 
-Virginia: (Basil-Anne)
+Virginia: <https://www.wordservice.org/State%20Constitutions/usa1025.htm> (Basil-Anne)
 
 ## Connecticut
 
 ```{r}
+library(rvest)
+library(dplyr)
+ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
+ct_html <- read_html(ct_url)
+
+ct_text <- html_text(ct_html)
+
+ct_con <- data.frame(word = unlist(strsplit(ct_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_ct <- c(1:7, 223:298, 6012:12230)
+
+ct_con_tidy <- ct_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ct))
 
 ```
 
@@ -106,6 +121,19 @@ md_con_tidy <- md_con %>%
 ## Massachusetts
 
 ```{r}
+ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm "
+ma_html <- read_html(ma_url)
+
+ma_text <- html_text(ma_html)
+
+ma_con <- data.frame(word = unlist(strsplit(ma_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_ma <- c(11433:11445)
+
+ma_con_tidy <- ct_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ma))
 
 ```
 
@@ -222,7 +250,19 @@ pa_con_tidy <- pa_con %>%
 ## Rhode Island
 
 ```{r}
+ri_url <- "https://www.wordservice.org/State%20Constitutions/usa1031.htm"
+ri_html <- read_html(ri_url)
 
+ri_text <- html_text(ri_html)
+
+ri_con <- data.frame(word = unlist(strsplit(ri_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_ri <- c(1:200, 7322:7331)
+
+ri_con_tidy <- ri_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ri))
 ```
 
 ## South Carolina
@@ -249,7 +289,19 @@ sc_con_tidy <- sc_con %>%
 ## Virginia
 
 ```{r}
+va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
+va_html <- read_html(va_url)
 
+va_text <- html_text(va_html)
+
+va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_va <- c(1:201, 3680:3689)
+
+va_con_tidy <- va_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_va))
 ```
 
 ## 
