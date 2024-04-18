@@ -53,6 +53,20 @@ ct_con_tidy <- ct_con %>%
 
 ```
 
+```{r}
+ct_word_count <- ct_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+ct_con_tidy_nostop <- ct_con_tidy %>%
+ anti_join(stop_words) 
+ct_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) 
+```
+
 ## Delaware
 
 ```{r}
