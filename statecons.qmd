@@ -37,6 +37,7 @@ Virginia: <https://www.wordservice.org/State%20Constitutions/usa1025.htm> (Basil
 ```{r}
 library(rvest)
 library(dplyr)
+
 ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
 ct_html <- read_html(ct_url)
 
@@ -50,6 +51,9 @@ rows_to_exclude_ct <- c(1:7, 223:298, 6012:12230)
 ct_con_tidy <- ct_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ct))
+
+ct_con_join <- ct_con_tidy %>%
+  mutate(state = rep("Connecticut"))
 
 ```
 
@@ -73,6 +77,9 @@ de_con_tidy <- de_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
 
+de_con_join <- de_con_tidy %>%
+  mutate(state = rep("Delaware"))
+
 ```
 
 ## Georgia
@@ -95,6 +102,9 @@ ga_con_tidy <- ga_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ga))
 
+ga_con_join <- ga_con_tidy %>%
+  mutate(state = rep("Georgia"))
+
 ```
 
 ## Maryland
@@ -116,6 +126,9 @@ rows_to_exclude_md <- c(1:94, 2623:2669, 8854:9084)
 md_con_tidy <- md_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_md))
+
+md_con_join <- md_con_tidy %>%
+  mutate(state = rep("Maryland"))
 ```
 
 ## Massachusetts
@@ -134,6 +147,9 @@ rows_to_exclude_ma <- c(11433:11445)
 ma_con_tidy <- ct_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ma))
+
+ma_con_join <- ma_con_tidy %>%
+  mutate(state = rep("Massachusetts"))
 
 ```
 
@@ -156,6 +172,9 @@ rows_to_exclude_nh <- c(1:63, 994:1242)
 nh_con_tidy <- nh_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_nh))
+
+nh_con_join <- nh_con_tidy %>%
+  mutate(state = rep("New Hampshire"))
 ```
 
 ## New Jersey
@@ -200,7 +219,8 @@ ny_con_tidy <- ny_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
 
-
+ny_con_join <- ny_con_tidy %>%
+  mutate(state = rep("New York"))
 ```
 
 ## North Carolina
@@ -223,6 +243,9 @@ rows_to_exclude <- c(1:58, 3991:4231)
 nc_con_tidy <- nc_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
+
+nc_con_join <- nc_con_tidy %>%
+  mutate(state = rep("North Carolina"))
 ```
 
 ## Pennsylvania
@@ -245,6 +268,9 @@ rows_to_exclude <- c(1:57, 6196:6533)
 pa_con_tidy <- pa_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
+
+pa_con_join <- pa_con_tidy %>%
+  mutate(state = rep("Pennsylvania"))
 ```
 
 ## Rhode Island
@@ -263,6 +289,9 @@ rows_to_exclude_ri <- c(1:200, 7322:7331)
 ri_con_tidy <- ri_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ri))
+
+ri_con_join <- ri_con_tidy %>%
+  mutate(state = rep("Rhode Island"))
 ```
 
 ## South Carolina
@@ -284,6 +313,9 @@ rows_to_exclude <- c(1:58, 5639:5880)
 sc_con_tidy <- sc_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
+
+sc_con_join <- sc_con_tidy %>%
+  mutate(state = rep("South Carolina"))
 ```
 
 ## Virginia
@@ -302,6 +334,25 @@ rows_to_exclude_va <- c(1:201, 3680:3689)
 va_con_tidy <- va_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_va))
+
+va_con_join <- va_con_tidy %>%
+  mutate(state = rep("Virgina"))
 ```
 
-## 
+## 13 colonies data frame and map
+
+```{r}
+thirteen_cons <- rbind(ct_con_join,
+                       de_con_join,
+                       ga_con_join,
+                       ma_con_join,
+                       md_con_join,
+                       nc_con_join,
+                       nh_con_join,
+                       ny_con_join,
+                       pa_con_join,
+                       ri_con_join,
+                       sc_con_join,
+                       va_con_join
+)
+```
