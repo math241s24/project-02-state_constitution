@@ -158,7 +158,7 @@ ma_con <- data.frame(word = unlist(strsplit(ma_text, "\\s+"))) %>%
 
 rows_to_exclude_ma <- c(11433:11445)
 
-ma_con_tidy <- ct_con %>%
+ma_con_tidy <- ma_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ma))
 
@@ -386,4 +386,6 @@ thirteen_cons <- rbind(ct_con_join,
                        sc_con_join,
                        va_con_join
 )
+
+thirteen_cons_map <- 
 ```
