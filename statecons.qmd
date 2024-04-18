@@ -63,13 +63,44 @@ de_con_tidy <- de_con %>%
 ## Georgia
 
 ```{r}
+library(rvest)
+library(dplyr)
+
+ga_url <- "https://avalon.law.yale.edu/18th_century/ga02.asp"
+ga_html <- read_html(ga_url)
+
+ga_text <- html_text(ga_html)
+
+ga_con <- data.frame(word = unlist(strsplit(ga_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_ga <- c(1:56, 4422:4652)
+
+ga_con_tidy <- ga_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ga))
 
 ```
 
 ## Maryland
 
 ```{r}
+library(rvest)
+library(dplyr)
 
+md_url <- "https://avalon.law.yale.edu/17th_century/ma02.asp"
+md_html <- read_html(md_url)
+
+md_text <- html_text(md_html)
+
+md_con <- data.frame(word = unlist(strsplit(md_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_md <- c(1:94, 2623:2669, 8854:9084)
+
+md_con_tidy <- md_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_md))
 ```
 
 ## Massachusetts
@@ -81,13 +112,43 @@ de_con_tidy <- de_con %>%
 ## New Hampshire
 
 ```{r}
+library(rvest)
+library(dplyr)
 
+nh_url <- "https://avalon.law.yale.edu/18th_century/nh09.asp"
+nh_html <- read_html(nh_url)
+
+nh_text <- html_text(nh_html)
+
+nh_con <- data.frame(word = unlist(strsplit(nh_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_nh <- c(1:63, 994:1242)
+
+nh_con_tidy <- nh_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_nh))
 ```
 
 ## New Jersey
 
 ```{r}
+library(rvest)
+library(dplyr)
 
+nj_url <- "https://avalon.law.yale.edu/18th_century/nj15.asp"
+nj_html <- read_html(nj_url)
+
+nj_text <- html_text(nj_html)
+
+nj_con <- data.frame(word = unlist(strsplit(nj_text, "\\s+"))) %>%
+  filter(word != "")  
+
+rows_to_exclude_nj <- c(1:55, 2524:2889)
+
+nj_con_tidy <- nj_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_nj))
 ```
 
 ## New York
