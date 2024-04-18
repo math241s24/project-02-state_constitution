@@ -73,7 +73,16 @@ ct_con_tidy_nostop <- ct_con_tidy %>%
 ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) 
-#WHY U HAVE SPACE
+
+```
+```{r}
+ct_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
 ```
 
 ## Delaware
@@ -118,6 +127,18 @@ de_con_tidy_nostop %>%
     slice_max(n = 20, order_by = n) 
 ```
 
+
+```{r}
+de_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## Georgia
 
 ```{r}
@@ -160,6 +181,17 @@ ga_con_tidy_nostop %>%
     slice_max(n = 20, order_by = n) 
 ```
 
+```{r}
+ga_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## Maryland
 
 ```{r}
@@ -200,6 +232,17 @@ md_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) 
 ```
+
+```{r}
+md_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
 
 ## Massachusetts
 
@@ -243,6 +286,17 @@ ma_con_tidy_nostop %>%
 
 ```
 
+```{r}
+ma_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## New Hampshire
 
 ```{r}
@@ -285,6 +339,17 @@ nh_con_tidy_nostop %>%
   filter(!word%in%c("(art.", " "))
 ```
 
+```{r}
+nh_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## New Jersey
 
 ```{r}
@@ -323,6 +388,17 @@ nj_con_tidy_nostop %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(art.", " "))
 ```
+
+```{r}
+nj_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
 
 ## New York
 
@@ -365,6 +441,17 @@ ny_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n)
 ```
+
+```{r}
+ny_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
 
 ## North Carolina
 
@@ -409,6 +496,17 @@ nc_con_tidy_nostop %>%
   filter(!word%in%c("(--", " "))
 ```
 
+```{r}
+nc_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## Pennsylvania
 
 ```{r}
@@ -451,6 +549,17 @@ pa_con_tidy_nostop %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
 ```
+
+```{r}
+pa_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
 
 ## Rhode Island
 
@@ -495,6 +604,17 @@ ri_con_tidy_nostop %>%
 
 ```
 
+```{r}
+ri_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## South Carolina
 
 ```{r}
@@ -537,6 +657,17 @@ nc_con_tidy_nostop %>%
   filter(!word%in%c("(--", " "))
 ```
 
+```{r}
+sc_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+
 ## Virginia
 
 ```{r}
@@ -559,7 +690,7 @@ va_con_join <- va_con_tidy %>%
   mutate(state = rep("Virgina"))
 ```
 
-<<<<<<< HEAD
+
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -579,21 +710,13 @@ va_con_tidy_nostop %>%
 ```
 
 ```{r}
-thirteen_cons <- rbind(ct_con_join,
-                       de_con_join,
-                       ga_con_join,
-                       ma_con_join,
-                       md_con_join,
-                       nc_con_join,
-                       nh_con_join,
-                       ny_con_join,
-                       pa_con_join,
-                       ri_con_join,
-                       sc_con_join,
-                       va_con_join
-)
-
-
+va_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE) +
+  labs(y = "Most Common Words")
 ```
 
-```
+
