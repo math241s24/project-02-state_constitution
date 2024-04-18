@@ -203,6 +203,23 @@ ny_con_tidy <- ny_con %>%
 
 ```
 
+```{r}
+library(tidyverse)
+library(tidytext)
+
+ny_word_count <- ny_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+ny_con_tidy_nostop <- ny_con_tidy %>%
+ anti_join(stop_words) 
+ny_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n)
+```
+
 ## North Carolina
 
 ```{r}
