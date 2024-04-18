@@ -45,7 +45,8 @@ ct_text <- html_text(ct_html)
 
 ct_con <- data.frame(word = unlist(strsplit(ct_text, "\\s+"))) %>%
   filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) %>%
+  filter(!word=="")
 
 rows_to_exclude_ct <- c(1:7, 223:298, 6012:12230)
 
@@ -239,7 +240,7 @@ ma_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(art.", ""))
-#wTHIS IS FUCKED UP
+
 ```
 
 ## New Hampshire
@@ -461,7 +462,9 @@ ri_text <- html_text(ri_html)
 
 ri_con <- data.frame(word = unlist(strsplit(ri_text, "\\s+"))) %>%
   filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", ""))  %>%
+  filter(!word=="")
+
 
 
 rows_to_exclude_ri <- c(1:200, 7322:7331)
@@ -489,7 +492,7 @@ ri_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
-#WHY SPACE
+
 ```
 
 ## South Carolina
@@ -572,8 +575,8 @@ va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
-=======
-## 13 colonies data frame and map
+
+```
 
 ```{r}
 thirteen_cons <- rbind(ct_con_join,
@@ -590,6 +593,7 @@ thirteen_cons <- rbind(ct_con_join,
                        va_con_join
 )
 
-thirteen_cons_map <- 
->>>>>>> 04cf7c7ad2ecf71a334f964191d3cf6ca9990876
+
+```
+
 ```
