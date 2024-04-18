@@ -47,5 +47,47 @@
     "title": "",
     "section": "Introduction",
     "text": "Introduction"
+  },
+  {
+    "objectID": "presentation.html#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution",
+    "href": "presentation.html#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution",
+    "title": "State Constitution Analysis",
+    "section": "Does the time a state came into being affect the keywords used in its Constitution?",
+    "text": "Does the time a state came into being affect the keywords used in its Constitution?\nWe scraped text from the constitutions of the original 13 colonies and analyzed each for specific keywords.\n\nKeywords: freedom, liberty, welfare, consent, prohibit, equality, and rights"
+  },
+  {
+    "objectID": "presentation.html#game-plan",
+    "href": "presentation.html#game-plan",
+    "title": "State Constitution Analysis",
+    "section": "Game plan",
+    "text": "Game plan\n\nScrape text from each constitution and create separate dataframes for each\nFind frequencies of each keyword in each constitution\nLink dataframes together into one dataframe to create interactive map\nCreate interactive map!"
+  },
+  {
+    "objectID": "presentation.html#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1",
+    "href": "presentation.html#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1",
+    "title": "State Constitution Analysis",
+    "section": "Does the time a state came into being affect the keywords used in its Constitution?",
+    "text": "Does the time a state came into being affect the keywords used in its Constitution?\nThen, we created an interactive map using a time variable to be able to see when each state was ratified.\nGoal: to understand if the time a state was ratified has a large effect on the language used in the constitution."
+  },
+  {
+    "objectID": "presentation.html#ratification-years",
+    "href": "presentation.html#ratification-years",
+    "title": "State Constitution Analysis",
+    "section": "Ratification years",
+    "text": "Ratification years\ndataframe of state to year ratified"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequency",
+    "href": "presentation.html#keyword-frequency",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequency",
+    "text": "Keyword frequency"
+  },
+  {
+    "objectID": "presentation.html#interactive-map",
+    "href": "presentation.html#interactive-map",
+    "title": "State Constitution Analysis",
+    "section": "Interactive map",
+    "text": "Interactive map"
   }
 ]
