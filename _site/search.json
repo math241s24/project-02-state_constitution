@@ -74,14 +74,14 @@
     "href": "presentation.html#ratification-years",
     "title": "State Constitution Analysis",
     "section": "Ratification years",
-    "text": "Ratification years\ndataframe of state to year ratified"
+    "text": "Ratification years\n\n\n\nstate\nyear\n\n\n\n\nDelaware\n1787\n\n\nGeorgia\n1777\n\n\nConnecticut\n1776\n\n\nMaryland\n1776\n\n\nMassachusetts\n1780\n\n\nNew Hampshire\n1776\n\n\nNew Jersey\n1776\n\n\nNew York\n1777\n\n\nNorth Carolina\n1776\n\n\nPennsylvania\n1776\n\n\nRhode Island\n1843\n\n\nSouth Carolina\n1778\n\n\nVirginia\n1776"
   },
   {
     "objectID": "presentation.html#keyword-frequency",
     "href": "presentation.html#keyword-frequency",
     "title": "State Constitution Analysis",
     "section": "Keyword frequency",
-    "text": "Keyword frequency"
+    "text": "Keyword frequency\n\n\n\n\n\nState\nYear\n\n\n\n\nDelaware\n1787\n\n\nGeorgia\n1777\n\n\nConnecticut\n1776\n\n\nMaryland\n1776\n\n\nMassachusetts\n1780\n\n\nNew Hampshire\n1776\n\n\nNew Jersey\n1776\n\n\nNew York\n1777\n\n\nNorth Carolina\n1776\n\n\nPennsylvania\n1776\n\n\nRhode Island\n1843\n\n\nSouth Carolina\n1778\n\n\nVirginia\n1776"
   },
   {
     "objectID": "presentation.html#interactive-map",
@@ -89,5 +89,117 @@
     "title": "State Constitution Analysis",
     "section": "Interactive map",
     "text": "Interactive map"
+  },
+  {
+    "objectID": "presentation.html#ratification-years-..smaller",
+    "href": "presentation.html#ratification-years-..smaller",
+    "title": "State Constitution Analysis",
+    "section": "Ratification years {..smaller}",
+    "text": "Ratification years {..smaller}\n\n\n\n\n\nState\nYear\n\n\n\n\nDelaware\n1787\n\n\nGeorgia\n1777\n\n\nConnecticut\n1776\n\n\nMaryland\n1776\n\n\nMassachusetts\n1780\n\n\nNew Hampshire\n1776\n\n\nNew Jersey\n1776\n\n\nNew York\n1777\n\n\nNorth Carolina\n1776\n\n\nPennsylvania\n1776\n\n\nRhode Island\n1843\n\n\nSouth Carolina\n1778\n\n\nVirginia\n1776\n\n\n\n\n\n\nFruit prices\n\n\nstate\nyear\n\n\n\n\napple\n2.05\n\n\npear\n1.37\n\n\norange\n3.09"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-delaware",
+    "href": "presentation.html#keyword-frequencies-delaware",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Delaware",
+    "text": "Keyword frequencies: Delaware\nRatification year: 1787\ninsert histogram here"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-georgia",
+    "href": "presentation.html#keyword-frequencies-georgia",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Georgia",
+    "text": "Keyword frequencies: Georgia\nRatification year: 1777"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-connecticut",
+    "href": "presentation.html#keyword-frequencies-connecticut",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Connecticut",
+    "text": "Keyword frequencies: Connecticut\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-maryland",
+    "href": "presentation.html#keyword-frequencies-maryland",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Maryland",
+    "text": "Keyword frequencies: Maryland\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-massachusetts",
+    "href": "presentation.html#keyword-frequencies-massachusetts",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Massachusetts",
+    "text": "Keyword frequencies: Massachusetts\nRatification year: 1780"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-new-hampshire",
+    "href": "presentation.html#keyword-frequencies-new-hampshire",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: New Hampshire",
+    "text": "Keyword frequencies: New Hampshire\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-new-jersey",
+    "href": "presentation.html#keyword-frequencies-new-jersey",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: New Jersey",
+    "text": "Keyword frequencies: New Jersey\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-new-york",
+    "href": "presentation.html#keyword-frequencies-new-york",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: New York",
+    "text": "Keyword frequencies: New York\nRatification year: 1777"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-north-carolina",
+    "href": "presentation.html#keyword-frequencies-north-carolina",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: North Carolina",
+    "text": "Keyword frequencies: North Carolina\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-pennsylvania",
+    "href": "presentation.html#keyword-frequencies-pennsylvania",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Pennsylvania",
+    "text": "Keyword frequencies: Pennsylvania\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-rhode-island",
+    "href": "presentation.html#keyword-frequencies-rhode-island",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Rhode Island",
+    "text": "Keyword frequencies: Rhode Island\nRatification year: 1843"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-south-carolina",
+    "href": "presentation.html#keyword-frequencies-south-carolina",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: South Carolina",
+    "text": "Keyword frequencies: South Carolina\nRatification year: 1778"
+  },
+  {
+    "objectID": "presentation.html#keyword-frequencies-virginia",
+    "href": "presentation.html#keyword-frequencies-virginia",
+    "title": "State Constitution Analysis",
+    "section": "Keyword frequencies: Virginia",
+    "text": "Keyword frequencies: Virginia\nRatification year: 1776"
+  },
+  {
+    "objectID": "presentation.html#interactive-maps",
+    "href": "presentation.html#interactive-maps",
+    "title": "State Constitution Analysis",
+    "section": "Interactive maps",
+    "text": "Interactive maps"
+  },
+  {
+    "objectID": "presentation.html#conclusions",
+    "href": "presentation.html#conclusions",
+    "title": "State Constitution Analysis",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nsomething cool about the frequencies\nsomething cool about the maps\nsmart closing sentence"
   }
 ]

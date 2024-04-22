@@ -37,9 +37,10 @@ knitr::opts_chunk$set(
 ```
 
 ## Does the time a state came into being affect the keywords used in its Constitution?
+
 We scraped text from the constitutions of the original 13 colonies and analyzed each for specific keywords.
 
-* Keywords: freedom, liberty, welfare, consent, prohibit, equality, and rights
+-   Keywords: freedom, liberty, welfare, consent, prohibit, equality, and rights
 
 ## Does the time a state came into being affect the keywords used in its Constitution?
 
@@ -48,28 +49,76 @@ Then, we created an interactive map using a time variable to be able to see when
 Goal: to understand if the time a state was ratified has a large effect on the language used in the constitution.
 
 ## Game plan
-* Scrape text from each constitution and create separate dataframes for each
-* Find frequencies of each keyword in each constitution
-* Link dataframes together into one dataframe to create interactive map
-* Create interactive map!
 
-## Ratification years
+-   Scrape text from each constitution and create separate dataframes for each
+-   Find frequencies of each keyword in each constitution
+-   Link dataframes together into one dataframe to create interactive map
+-   Create interactive map!
 
-dataframe of state to year ratified
+## Ratification years {.smaller}
+
+| state  | year   |
+|--------|--------|
+| Delaware  | 1787 |
+| Georgia   | 1777  |
+| Connecticut | 1776 |
+| Maryland  | 1776  |
+| Massachusetts   | 1780  |
+| New Hampshire | 1776   |
+| New Jersey  | 1776   |
+| New York   | 1777   |
+| North Carolina | 1776   |
+| Pennsylvania  | 1776   |
+| Rhode Island   | 1843   |
+| South Carolina | 1778   |
+| Virginia | 1776 |
 
 
+## Keyword frequencies: Delaware
+Ratification year: 1787
 
-## Keyword frequency
+insert histogram here
+
+## Keyword frequencies: Georgia
+Ratification year: 1777
+
+## Keyword frequencies: Connecticut
+Ratification year: 1776
+
+## Keyword frequencies: Maryland
+Ratification year: 1776
+
+## Keyword frequencies: Massachusetts
+Ratification year: 1780
+
+## Keyword frequencies: New Hampshire
+Ratification year: 1776
+
+## Keyword frequencies: New Jersey
+Ratification year: 1776
+
+## Keyword frequencies: New York
+Ratification year: 1777
+
+## Keyword frequencies: North Carolina
+Ratification year: 1776
+
+## Keyword frequencies: Pennsylvania
+Ratification year: 1776
+
+## Keyword frequencies: Rhode Island
+Ratification year: 1843
+
+## Keyword frequencies: South Carolina
+Ratification year: 1778
+
+## Keyword frequencies: Virginia
+Ratification year: 1776
+
+## Interactive maps
 
 
-
-## Interactive map
-
-
-
-
-
-
-
-
-
+## Conclusions
+- something cool about the frequencies
+- something cool about the maps
+- smart closing sentence
