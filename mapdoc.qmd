@@ -72,9 +72,10 @@ ct_word_count <- ct_con_tidy %>%
 data("stop_words")
 ct_con_tidy_nostop <- ct_con_tidy %>%
  anti_join(stop_words) 
-ct_con_tidy_nostop %>%
+ct_all_words <- ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
+    slice_max(n = 20, order_by = n) %>%
+  mutate(state = rep("Connecticut"))
 ```
 
 ## Delaware
@@ -113,9 +114,10 @@ de_word_count <- de_con_tidy %>%
 data("stop_words")
 de_con_tidy_nostop <- de_con_tidy %>%
  anti_join(stop_words) 
-de_con_tidy_nostop %>%
+de_all_words <- de_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
+    slice_max(n = 20, order_by = n) %>%
+  mutate(state = rep("Delaware"))
 ```
 
 ## Georgia
@@ -154,9 +156,11 @@ ga_word_count <- ga_con_tidy %>%
 data("stop_words")
 ga_con_tidy_nostop <- ga_con_tidy %>%
  anti_join(stop_words) 
-ga_con_tidy_nostop %>%
+
+ga_all_words <- ga_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
+    slice_max(n = 20, order_by = n) %>%
+  mutate(state = rep("Georgia"))
 ```
 
 ## Maryland
@@ -194,9 +198,10 @@ md_word_count <- md_con_tidy %>%
 data("stop_words")
 md_con_tidy_nostop <- md_con_tidy %>%
  anti_join(stop_words) 
-md_con_tidy_nostop %>%
+md_all_words <- md_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
+    slice_max(n = 20, order_by = n) %>%
+  mutate(state = rep("Maryland"))
 ```
 
 ## Massachusetts
@@ -233,10 +238,11 @@ ma_word_count <- ma_con_tidy %>%
 data("stop_words")
 ma_con_tidy_nostop <- ma_con_tidy %>%
  anti_join(stop_words) 
-ma_con_tidy_nostop %>%
+ma_all_words <- ma_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", ""))
+  filter(!word%in%c("(art.", "")) %>%
+  mutate(state = rep("Massachusetts"))
 
 ```
 
@@ -275,10 +281,12 @@ nh_word_count <- nh_con_tidy %>%
 data("stop_words")
 nh_con_tidy_nostop <- nh_con_tidy %>%
  anti_join(stop_words) 
-nh_con_tidy_nostop %>%
+
+nh_all_words <- nh_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
+  filter(!word%in%c("(art.", " ")) %>%
+  mutate(state = rep("New Hampshire"))
 ```
 
 ## New Jersey
@@ -316,10 +324,11 @@ nj_word_count <- nj_con_tidy %>%
 data("stop_words")
 nj_con_tidy_nostop <- nj_con_tidy %>%
  anti_join(stop_words) 
-nj_con_tidy_nostop %>%
+nj_all_words <- nj_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
+  filter(!word%in%c("(art.", " "))  %>%
+  mutate(state = rep("New Jersey"))
 ```
 
 ## New York
@@ -361,9 +370,10 @@ ny_word_count <- ny_con_tidy %>%
 data("stop_words")
 ny_con_tidy_nostop <- ny_con_tidy %>%
  anti_join(stop_words) 
-ny_con_tidy_nostop %>%
+ny_all_words <- ny_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n)
+    slice_max(n = 20, order_by = n) %>%
+  mutate(state = rep("New York"))
 ```
 
 ## North Carolina
@@ -402,10 +412,12 @@ nc_word_count <- nc_con_tidy %>%
 data("stop_words")
 nc_con_tidy_nostop <- nc_con_tidy %>%
  anti_join(stop_words) 
-nc_con_tidy_nostop %>%
+
+nc_all_words <- nc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
+  filter(!word%in%c("(--", " ")) %>%
+  mutate(state = rep("North Carolina"))
 ```
 
 ## Pennsylvania
@@ -444,10 +456,11 @@ pa_word_count <- pa_con_tidy %>%
 data("stop_words")
 pa_con_tidy_nostop <- pa_con_tidy %>%
  anti_join(stop_words) 
-pa_con_tidy_nostop %>%
+pa_all_words <- pa_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
+  filter(!word%in%c("(--", " ")) %>%
+  mutate(state = rep("Pennsylvania"))
 ```
 
 ## Rhode Island
@@ -484,11 +497,12 @@ ri_word_count <- ri_con_tidy %>%
 data("stop_words")
 ri_con_tidy_nostop <- ri_con_tidy %>%
  anti_join(stop_words) 
-ri_con_tidy_nostop %>%
+ri_all_words <- ri_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
-#WHY SPACE
+  filter(!word%in%c("(--", " ")) %>%
+  mutate(state = rep("Rhode Island"))
+
 ```
 
 ## South Carolina
@@ -526,10 +540,12 @@ sc_word_count <- sc_con_tidy %>%
 data("stop_words")
 sc_con_tidy_nostop <- sc_con_tidy %>%
  anti_join(stop_words) 
-nc_con_tidy_nostop %>%
+sc_all_words <- sc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
+  filter(!word%in%c("(--", " "))  %>%
+  mutate(state = rep("South Carolina"))
+
 ```
 
 ## Virginia
@@ -564,10 +580,12 @@ va_word_count <- va_con_tidy %>%
 data("stop_words")
 va_con_tidy_nostop <- va_con_tidy %>%
  anti_join(stop_words) 
-va_con_tidy_nostop %>%
+
+va_all_words <- va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
+  filter(!word%in%c("(--", " ")) %>%
+  mutate(state = rep("Virginia"))
 ```
 
 ```{r}
@@ -654,4 +672,36 @@ map_data_2$year <- as.character(map_data_2$year)
 
 time_map <- ggplot(map_data_2, aes(fill = year)) + geom_sf(aes(geometry = geometry))
 time_map
+```
+
+```{r}
+thirteen_cons2 <- rbind(ct_all_words,
+                       de_all_words,
+                       ga_all_words,
+                       ma_all_words,
+                       md_all_words,
+                       nc_all_words,
+                       nh_all_words,
+                       nj_all_words,
+                       ny_all_words,
+                       pa_all_words,
+                       ri_all_words,
+                       sc_all_words,
+                       va_all_words)
+
+thirteen_cons2_filtered <- thirteen_cons2 %>%
+  group_by(state) %>%
+  slice_max(n, n = 1) %>%
+  ungroup()
+
+states <- states()
+
+all_words_map_data <- thirteen_cons2_filtered %>% 
+  left_join(states, by = c("state" = "NAME"))
+
+most_used_map <- ggplot(all_words_map_data, aes(fill = word)) +
+  geom_sf(aes(geometry = geometry)) 
+  labs(fill = "Most Popular Word")
+
+most_used_map
 ```
