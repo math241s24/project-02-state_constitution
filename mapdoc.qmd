@@ -627,3 +627,31 @@ equality_map
 rights_map <- ggplot(map_data, aes(fill = rights)) + geom_sf(aes(geometry = geometry))
 rights_map
 ```
+
+```{r}
+year_values <- c(rep(1818, nrow(ct_word_count)),
+                 rep(1776, nrow(de_word_count)),
+                 rep(1777, nrow(ga_word_count)),
+                 rep(1780, nrow(ma_word_count)),
+                 rep(1776, nrow(md_word_count)),
+                 rep(1776, nrow(nc_word_count)),
+                 rep(1776, nrow(nh_word_count)),
+                 rep(1776, nrow(nj_word_count)),
+                 rep(1777, nrow(ny_word_count)),
+                 rep(1776, nrow(pa_word_count)),
+                 rep(1843, nrow(ri_word_count)),
+                 rep(1778, nrow(sc_word_count)),
+                 rep(1776, nrow(va_word_count)))
+
+
+thirteen_cons$year <- year_values
+
+map_data_2 <- thirteen_cons %>% 
+  left_join(states, join_by(state == NAME)) %>%
+  pivot_wider(names_from = word, values_from = n)
+
+map_data_2$year <- as.character(map_data_2$year)
+
+time_map <- ggplot(map_data_2, aes(fill = year)) + geom_sf(aes(geometry = geometry))
+time_map
+```
