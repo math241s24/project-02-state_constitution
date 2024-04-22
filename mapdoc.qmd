@@ -597,3 +597,33 @@ map_data <- thirteen_cons %>%
 freedom_map <- ggplot(map_data, aes(fill = freedom)) + geom_sf(aes(geometry = geometry))
 freedom_map
 ```
+
+```{r}
+liberty_map <- ggplot(map_data, aes(fill = liberty)) + geom_sf(aes(geometry = geometry))
+liberty_map
+```
+
+```{r}
+welfare_map <- ggplot(map_data, aes(fill = welfare)) + geom_sf(aes(geometry = geometry))
+welfare_map
+```
+
+```{r}
+consent_map <- ggplot(map_data, aes(fill = consent)) + geom_sf(aes(geometry = geometry))
+consent_map
+```
+
+```{r}
+prohibit_map <- ggplot(map_data, aes(fill = prohibit)) + geom_sf(aes(geometry = geometry))
+prohibit_map
+```
+
+```{r}
+equality_map <- ggplot(map_data, aes(fill = equality)) + geom_sf(aes(geometry = geometry))
+equality_map
+```
+
+```{r}
+rights_map <- ggplot(map_data, aes(fill = rights)) + geom_sf(aes(geometry = geometry))
+rights_map
+```
