@@ -349,12 +349,15 @@ Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole
 <p>Then, we created an interactive map using a time variable to be able to see when each state was ratified.</p>
 <p>Goal: to understand if the time a state was ratified has a large effect on the language used in the constitution.</p>
 </section>
-<section id="game-plan" class="slide level2">
+<section id="game-plan" class="slide level2 smaller">
 <h2>Game plan</h2>
 <ul>
 <li>Scrape text from each constitution and create separate dataframes for each</li>
-<li>Find frequencies of each keyword in each constitution</li>
-<li>Link dataframes together into one dataframe to create interactive map</li>
+<li>Find frequencies of chosen keywords in each constitution</li>
+<li>Also analyze the top 20 words appearing most frequently in each constitution (minus common stop words)</li>
+<li>Create histograms of the most common words</li>
+<li>Link dataframes together into one dataframe to create maps</li>
+<li>Created character variable for each word with what state it was from, then used the tigris package with state geometry to create a map (keywords!)</li>
 <li>Create interactive map!</li>
 </ul>
 </section>
@@ -423,68 +426,619 @@ Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole
 </tbody>
 </table>
 </section>
-<section id="keyword-frequencies-delaware" class="slide level2">
-<h2>Keyword frequencies: Delaware</h2>
+<section id="word-frequencies-delaware" class="slide level2 smaller">
+<h2>Word frequencies: Delaware</h2>
 <p>Ratification year: 1787</p>
-<p>insert histogram here</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Most common words</a></li><li><a href="#tabset-1-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1          art 59
+2     assembly 42
+3      council 26
+4        house 26
+5       office 25
+6    president 22
+7     election 19
+8       courts 15
+9          day 15
+10        time 15
+11      chosen 14
+12      county 14
+13 legislative 13
+14       privy 13
+15       court 12
+16      manner 12
+17             11
+18    delaware 11
+19    justices 11
+20      common 10</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-georgia" class="slide level2">
-<h2>Keyword frequencies: Georgia</h2>
+<section id="word-frequencies-georgia" class="slide level2 smaller">
+<h2>Word frequencies: Georgia</h2>
 <p>Ratification year: 1777</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Most common words</a></li><li><a href="#tabset-2-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              art 62
+2           county 49
+3            house 23
+4         assembly 22
+5          council 22
+6           person 19
+7         governor 18
+8        executive 17
+9     constitution 15
+10 representatives 14
+11        election 13
+12           power 13
+13            laws 12
+14           saint 12
+15            time 12
+16        counties 11
+17           court 10
+18         elected 10
+19         tuesday 10
+20            vote 10</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-connecticut" class="slide level2">
-<h2>Keyword frequencies: Connecticut</h2>
+<section id="word-frequencies-connecticut" class="slide level2 smaller">
+<h2>Word frequencies: Connecticut</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Most common words</a></li><li><a href="#tabset-3-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           word   n
+1           sec 100
+2           art  94
+3      assembly  44
+4     governour  36
+5           law  35
+6         house  25
+7        office  25
+8    amendments  23
+9       altered  22
+10        votes  21
+11            4  20
+12     electors  20
+13       manner  20
+14 constitution  19
+15       person  19
+16         time  19
+17            3  18
+18    secretary  18
+19            6  17
+20            2  15
+21         town  15</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-maryland" class="slide level2">
-<h2>Keyword frequencies: Maryland</h2>
+<section id="word-frequencies-maryland" class="slide level2 smaller">
+<h2>Word frequencies: Maryland</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Most common words</a></li><li><a href="#tabset-4-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1       person 59
+2       office 49
+3     governor 42
+4       county 41
+5    delegates 38
+6      council 35
+7        court 32
+8     assembly 31
+9         time 31
+10    election 29
+11         law 28
+12 legislature 27
+13       house 24
+14  government 21
+15        oath 21
+16     persons 21
+17   aforesaid 20
+18      ballot 20
+19      manner 20
+20       money 18
+21   qualified 18</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-massachusetts" class="slide level2">
-<h2>Keyword frequencies: Massachusetts</h2>
+<section id="word-frequencies-massachusetts" class="slide level2 smaller">
+<h2>Word frequencies: Massachusetts</h2>
 <p>Ratification year: 1780</p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Most common words</a></li><li><a href="#tabset-5-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              art 87
+2     commonwealth 86
+3             time 72
+4         governor 67
+5     constitution 42
+6  representatives 41
+7            court 39
+8       government 38
+9            house 38
+10          public 37
+11          people 36
+12         council 35
+13            laws 35
+14     legislature 35
+15          senate 35
+16        officers 31
+17         persons 30
+18          person 29
+19          manner 27
+20       authority 26
+21         elected 26
+22           power 26</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-new-hampshire" class="slide level2">
-<h2>Keyword frequencies: New Hampshire</h2>
+<section id="word-frequencies-new-hampshire" class="slide level2 smaller">
+<h2>Word frequencies: New Hampshire</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Most common words</a></li><li><a href="#tabset-6-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1          council 12
+2           county 12
+3           colony 11
+4         congress  8
+5        appointed  7
+6         assembly  6
+7            house  6
+8         officers  6
+9           courts  5
+10 representatives  5
+11         britain  4
+12          chosen  4
+13          manner  4
+14          people  4
+15      respective  4
+16     continental  3
+17        continue  3
+18            form  3
+19      government  3
+20          houses  3
+21     inhabitants  3
+22           lives  3
+23      properties  3
+24            time  3
+25         unhappy  3</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-21-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-new-jersey" class="slide level2">
-<h2>Keyword frequencies: New Jersey</h2>
+<section id="word-frequencies-new-jersey" class="slide level2 smaller">
+<h2>Word frequencies: New Jersey</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Most common words</a></li><li><a href="#tabset-7-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1          council 28
+2         assembly 26
+3           colony 26
+4         governor 12
+5           county 10
+6           person 10
+7       government  9
+8          elected  8
+9              law  8
+10     legislative  8
+11        officers  8
+12            time  8
+13         charter  7
+14          manner  7
+15   vicepresident  7
+16        election  6
+17          people  6
+18 representatives  6
+19          choose  5
+20        colonies  5
+21        congress  5
+22        counties  5
+23           court  5
+24          office  5
+25         persons  5
+26           power  5
+27        provided  5
+28        province  5
+29          remain  5
+30         supreme  5
+31            vote  5</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-24-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-new-york" class="slide level2">
-<h2>Keyword frequencies: New York</h2>
+<section id="word-frequencies-new-york" class="slide level2 smaller">
+<h2>Word frequencies: New York</h2>
 <p>Ratification year: 1777</p>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Most common words</a></li><li><a href="#tabset-8-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1       people 46
+2  legislature 37
+3         time 29
+4   government 28
+5     assembly 27
+6       county 26
+7    authority 22
+8       senate 22
+9        court 21
+10        york 20
+11  convention 19
+12    governor 19
+13      office 19
+14      colony 18
+15   appointed 17
+16    congress 17
+17        laws 17
+18         day 16
+19   determine 16
+20    senators 16</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-27-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-north-carolina" class="slide level2">
-<h2>Keyword frequencies: North Carolina</h2>
+<section id="word-frequencies-north-carolina" class="slide level2 smaller">
+<h2>Word frequencies: North Carolina</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Most common words</a></li><li><a href="#tabset-9-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1            house 27
+2         assembly 24
+3          commons 20
+4           senate 19
+5           office 16
+6         governor 14
+7           county 13
+8       government 12
+9           people 12
+10         council 11
+11          public 11
+12                 10
+13            time 10
+14          ballot  9
+15        election  9
+16            laws  9
+17         liberty  9
+18          person  9
+19    constitution  8
+20             law  8
+21           power  8
+22 representatives  8
+23            seat  8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-30-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-pennsylvania" class="slide level2">
-<h2>Keyword frequencies: Pennsylvania</h2>
+<section id="word-frequencies-pennsylvania" class="slide level2 smaller">
+<h2>Word frequencies: Pennsylvania</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Most common words</a></li><li><a href="#tabset-10-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1             sect 47
+2         assembly 41
+3     commonwealth 28
+4           people 28
+5          council 24
+6           county 22
+7  representatives 22
+8          freemen 21
+9       government 21
+10          office 20
+11            laws 19
+12            city 17
+13          public 16
+14     legislature 15
+15           power 15
+16          manner 14
+17        officers 14
+18          person 14
+19          chosen 13
+20    constitution 13
+21        counties 13
+22         elected 13
+23            free 13
+24    pennsylvania 13
+25         persons 13
+26            time 13</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-33-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-rhode-island" class="slide level2">
-<h2>Keyword frequencies: Rhode Island</h2>
+<section id="word-frequencies-rhode-island" class="slide level2 smaller">
+<h2>Word frequencies: Rhode Island</h2>
 <p>Ratification year: 1843</p>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Most common words</a></li><li><a href="#tabset-11-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              sec 88
+2         assembly 47
+3              law 38
+4           person 35
+5         election 34
+6             time 34
+7             town 33
+8     constitution 30
+9           office 29
+10            city 28
+11        governor 27
+12           house 26
+13            vote 22
+14         elected 18
+15        officers 18
+16 representatives 17
+17         article 14
+18           court 14
+19        military 14
+20          people 14
+21       secretary 14</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-36-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-south-carolina" class="slide level2">
-<h2>Keyword frequencies: South Carolina</h2>
+<section id="word-frequencies-south-carolina" class="slide level2 smaller">
+<h2>Word frequencies: South Carolina</h2>
 <p>Ratification year: 1778</p>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Most common words</a></li><li><a href="#tabset-12-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1            house 27
+2         assembly 24
+3          commons 20
+4           senate 19
+5           office 16
+6         governor 14
+7           county 13
+8       government 12
+9           people 12
+10         council 11
+11          public 11
+12                 10
+13            time 10
+14          ballot  9
+15        election  9
+16            laws  9
+17         liberty  9
+18          person  9
+19    constitution  8
+20             law  8
+21           power  8
+22 representatives  8
+23            seat  8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-39-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="keyword-frequencies-virginia" class="slide level2">
-<h2>Keyword frequencies: Virginia</h2>
+<section id="word-frequencies-virginia" class="slide level2 smaller">
+<h2>Word frequencies: Virginia</h2>
 <p>Ratification year: 1776</p>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Most common words</a></li><li><a href="#tabset-13-2">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1       government 19
+2            house 19
+3         assembly 16
+4           people 16
+5              sec 15
+6         virginia 15
+7          council 14
+8         governor 14
+9        delegates 13
+10            laws 12
+11          office 11
+12          houses 10
+13          advice  9
+14          county  9
+15             law  9
+16            time  9
+17       vacancies  9
+18        annually  8
+19          courts  8
+20          manner  8
+21           power  8
+22           privy  8
+23 representatives  8
+24          rights  8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="presentation_files/figure-revealjs/unnamed-chunk-42-1.png" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="interactive-maps" class="slide level2">
-<h2>Interactive maps</h2>
+<section id="maps" class="slide level2">
+<h2>Maps</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-46-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="map-2" class="slide level2">
+<h2>map 2</h2>
 </section>
+<section id="next-map" class="slide level2">
+<h2>next map</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-49-1.png" style="width:70.0%" class="r-stretch"></section>
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
 <ul>
-<li>something cool about the frequencies</li>
-<li>something cool about the maps</li>
-<li>smart closing sentence</li>
+<li>The most common words have to do with administration rather than ideology</li>
+<li>Ex. section, article, council, county, government, people</li>
+<li>Even though the map is a useful visualization, there don’t seem to be geographical trends</li>
 </ul>
 
 <div class="footer footer-default">
