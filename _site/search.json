@@ -284,7 +284,7 @@
     "href": "presentation.html#word-frequencies-south-carolina",
     "title": "State Constitution Analysis",
     "section": "Word frequencies: South Carolina",
-    "text": "Word frequencies: South Carolina\nRatification year: 1778\n\nMost common wordsHistogram\n\n\n\n\n              word  n\n1            house 27\n2         assembly 24\n3          commons 20\n4           senate 19\n5           office 16\n6         governor 14\n7           county 13\n8       government 12\n9           people 12\n10         council 11\n11          public 11\n12                 10\n13            time 10\n14          ballot  9\n15        election  9\n16            laws  9\n17         liberty  9\n18          person  9\n19    constitution  8\n20             law  8\n21           power  8\n22 representatives  8\n23            seat  8"
+    "text": "Word frequencies: South Carolina\nRatification year: 1778\n\nMost common wordsHistogram\n\n\n\n\n                 word  n\n1               house 53\n2     representatives 49\n3              parish 39\n4              senate 39\n5             council 30\n6            governor 30\n7            district 29\n8               privy 28\n9    commanderinchief 22\n10              saint 21\n11             chosen 20\n12             office 18\n13           election 17\n14                law 16\n15 lieutenantgovernor 16\n16             person 15\n17               time 15\n18           assembly 13\n19               seat 13\n20       constitution 12\n21                day 12\n22          religious 12"
   },
   {
     "objectID": "presentation.html#word-frequencies-virginia",

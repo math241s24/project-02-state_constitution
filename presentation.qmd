@@ -646,7 +646,7 @@ sc_word_count <- sc_con_tidy %>%
 data("stop_words")
 sc_con_tidy_nostop <- sc_con_tidy %>%
  anti_join(stop_words) 
-nc_con_tidy_nostop %>%
+sc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
