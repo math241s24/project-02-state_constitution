@@ -66,8 +66,7 @@ library(tidytext)
 ct_word_count <- ct_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word) %>%
-  mutate(state = rep("Connecticut"))
+  count(word) 
 
 data("stop_words")
 ct_con_tidy_nostop <- ct_con_tidy %>%
@@ -585,6 +584,47 @@ va_all_words <- va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " ")) %>%
+  mutate(state = rep("Virginia"))
+```
+
+```{r}
+ct_word_count <- ct_word_count %>%
+  mutate(state = rep("Connecticut"))
+
+de_word_count <- de_word_count %>%
+  mutate(state = rep("Delaware"))
+
+ga_word_count <- ga_word_count %>%
+  mutate(state = rep("Georgia"))
+
+ma_word_count <- ma_word_count %>%
+  mutate(state = rep("Massachusetts"))
+
+md_word_count <- md_word_count %>%
+  mutate(state = rep("Maryland"))
+
+nc_word_count <- nc_word_count %>%
+  mutate(state = rep("North Carolina"))
+
+nh_word_count <- nh_word_count %>%
+  mutate(state = rep("New Hampshire"))
+
+nj_word_count <- nj_word_count %>%
+  mutate(state = rep("New Jersey"))
+
+ny_word_count <- ny_word_count %>%
+  mutate(state = rep("New York"))
+
+pa_word_count <- pa_word_count %>%
+  mutate(state = rep("Pennsylvania"))
+
+ri_word_count <- ri_word_count %>%
+  mutate(state = rep("Rhode Island"))
+
+sc_word_count <- sc_word_count %>%
+  mutate(state = rep("South Carolina"))
+
+va_word_count <- va_word_count %>%
   mutate(state = rep("Virginia"))
 ```
 
