@@ -18,6 +18,9 @@ library(tidyverse)
 library(tmap)
 library(tigris)
 library(tidyr)
+library(tidytext)
+library(rvest)
+library(dplyr)
 ```
 
 ```{r}
@@ -80,55 +83,107 @@ Goal: to understand if the time a state was ratified has a large effect on the l
 | Virginia | 1776 |
 
 
-## Word frequencies: Delaware {.smaller}
-Ratification year: 1787
+## Word frequencies: Virginia {.smaller}
+Ratification year: 1776
 
 ::: {.panel-tabset}
 
 ### Most common words
 ```{r, echo=FALSE}
-library(rvest)
-library(dplyr)
+va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
+va_html <- read_html(va_url)
 
-de_url <- "https://avalon.law.yale.edu/18th_century/de02.asp"
-de_html <- read_html(de_url)
+va_text <- html_text(va_html)
 
-de_text <- html_text(de_html)
-
-de_con <- data.frame(word = unlist(strsplit(de_text, "\\s+"))) %>%
+va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude <- c(1:54, 3721:3796)
+rows_to_exclude_va <- c(1:201, 3680:3689)
 
-de_con_tidy <- de_con %>%
+va_con_tidy <- va_con %>%
   mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude))
+  filter(!(row_number() %in% rows_to_exclude_va))
 
-de_con_join <- de_con_tidy %>%
-  mutate(state = rep("Delaware"))
-
+va_con_join <- va_con_tidy %>%
+  mutate(state = rep("Virgina"))
 ```
 
 ```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-de_word_count <- de_con_tidy %>%
+va_word_count <- va_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
 data("stop_words")
-de_con_tidy_nostop <- de_con_tidy %>%
+va_con_tidy_nostop <- va_con_tidy %>%
  anti_join(stop_words) 
-de_con_tidy_nostop %>%
+va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
+
 ```
 
 ### Histogram
 ```{r, echo=FALSE}
-de_con_tidy_nostop %>%
+va_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE) +
+  labs(y = "Most Common Words")
+```
+
+:::
+
+## Word frequencies: Pennsylvania {.smaller}
+Ratification year: 1776
+
+::: {.panel-tabset}
+
+### Most common words
+```{r, echo=FALSE}
+pa_url <- "https://avalon.law.yale.edu/18th_century/pa08.asp"
+pa_html <- read_html(pa_url)
+
+pa_text <- html_text(pa_html)
+
+pa_con <- data.frame(word = unlist(strsplit(pa_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+
+rows_to_exclude <- c(1:57, 6196:6533)
+
+pa_con_tidy <- pa_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
+
+pa_con_join <- pa_con_tidy %>%
+  mutate(state = rep("Pennsylvania"))
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+pa_word_count <- pa_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+pa_con_tidy_nostop <- pa_con_tidy %>%
+ anti_join(stop_words) 
+pa_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
+```
+
+### Histogram
+```{r, echo=FALSE}
+pa_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -139,8 +194,8 @@ de_con_tidy_nostop %>%
 
 :::
 
-## Word frequencies: Georgia {.smaller}
-Ratification year: 1777
+## Word frequencies: Maryland {.smaller}
+Ratification year: 1776
 
 ::: {.panel-tabset}
 
@@ -149,45 +204,159 @@ Ratification year: 1777
 library(rvest)
 library(dplyr)
 
-ga_url <- "https://avalon.law.yale.edu/18th_century/ga02.asp"
-ga_html <- read_html(ga_url)
+md_url <- "https://avalon.law.yale.edu/17th_century/ma02.asp"
+md_html <- read_html(md_url)
 
-ga_text <- html_text(ga_html)
+md_text <- html_text(md_html)
 
-ga_con <- data.frame(word = unlist(strsplit(ga_text, "\\s+"))) %>%
+md_con <- data.frame(word = unlist(strsplit(md_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude_ga <- c(1:56, 4422:4652)
+rows_to_exclude_md <- c(1:94, 2623:2669, 8854:9084)
 
-ga_con_tidy <- ga_con %>%
+md_con_tidy <- md_con %>%
   mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_ga))
+  filter(!(row_number() %in% rows_to_exclude_md))
 
-ga_con_join <- ga_con_tidy %>%
-  mutate(state = rep("Georgia"))
-
+md_con_join <- md_con_tidy %>%
+  mutate(state = rep("Maryland"))
 ```
 
 ```{r, echo=FALSE}
 library(tidyverse)
 library(tidytext)
-ga_word_count <- ga_con_tidy %>%
+md_word_count <- md_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
 data("stop_words")
-ga_con_tidy_nostop <- ga_con_tidy %>%
+md_con_tidy_nostop <- md_con_tidy %>%
  anti_join(stop_words) 
-ga_con_tidy_nostop %>%
+md_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) 
 ```
 
 ### Histogram
-```{r}
-ga_con_tidy_nostop %>%
+```{r, echo=FALSE}
+md_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+:::
+
+## Word frequencies: New Jersey {.smaller}
+Ratification year: 1776
+
+::: {.panel-tabset}
+
+### Most common words
+```{r, echo=FALSE}
+library(rvest)
+library(dplyr)
+
+nj_url <- "https://avalon.law.yale.edu/18th_century/nj15.asp"
+nj_html <- read_html(nj_url)
+
+nj_text <- html_text(nj_html)
+
+nj_con <- data.frame(word = unlist(strsplit(nj_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+
+rows_to_exclude_nj <- c(1:55, 2524:2889)
+
+nj_con_tidy <- nj_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_nj))
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+nj_word_count <- nj_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+nj_con_tidy_nostop <- nj_con_tidy %>%
+ anti_join(stop_words) 
+nj_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(art.", " "))
+```
+
+### Histogram
+```{r, echo=FALSE}
+nj_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+:::
+
+## Word frequencies: New Hampshire {.smaller}
+Ratification year: 1776
+
+::: {.panel-tabset}
+
+### Most common words
+```{r, echo=FALSE}
+library(rvest)
+library(dplyr)
+
+nh_url <- "https://avalon.law.yale.edu/18th_century/nh09.asp"
+nh_html <- read_html(nh_url)
+
+nh_text <- html_text(nh_html)
+
+nh_con <- data.frame(word = unlist(strsplit(nh_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+
+rows_to_exclude_nh <- c(1:63, 994:1242)
+
+nh_con_tidy <- nh_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_nh))
+
+nh_con_join <- nh_con_tidy %>%
+  mutate(state = rep("New Hampshire"))
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+nh_word_count <- nh_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+nh_con_tidy_nostop <- nh_con_tidy %>%
+ anti_join(stop_words) 
+nh_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(art.", " "))
+```
+
+### Histogram
+```{r, echo=FALSE}
+nh_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -259,228 +428,56 @@ ct_con_tidy_nostop %>%
 
 :::
 
-## Word frequencies: Maryland {.smaller}
+## Word frequencies: North Carolina {.smaller}
 Ratification year: 1776
 
 ::: {.panel-tabset}
 
 ### Most common words
 ```{r, echo=FALSE}
+
 library(rvest)
 library(dplyr)
 
-md_url <- "https://avalon.law.yale.edu/17th_century/ma02.asp"
-md_html <- read_html(md_url)
+nc_url <- "https://avalon.law.yale.edu/18th_century/nc07.asp"
+nc_html <- read_html(nc_url)
 
-md_text <- html_text(md_html)
+nc_text <- html_text(nc_html)
 
-md_con <- data.frame(word = unlist(strsplit(md_text, "\\s+"))) %>%
+nc_con <- data.frame(word = unlist(strsplit(nc_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude_md <- c(1:94, 2623:2669, 8854:9084)
+rows_to_exclude <- c(1:58, 3991:4231)
 
-md_con_tidy <- md_con %>%
+nc_con_tidy <- nc_con %>%
   mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_md))
+  filter(!(row_number() %in% rows_to_exclude))
 
-md_con_join <- md_con_tidy %>%
-  mutate(state = rep("Maryland"))
+nc_con_join <- nc_con_tidy %>%
+  mutate(state = rep("North Carolina"))
 ```
 
 ```{r, echo=FALSE}
 library(tidyverse)
 library(tidytext)
-md_word_count <- md_con_tidy %>%
+nc_word_count <- nc_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
 data("stop_words")
-md_con_tidy_nostop <- md_con_tidy %>%
+nc_con_tidy_nostop <- nc_con_tidy %>%
  anti_join(stop_words) 
-md_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
-```
-
-### Histogram
-```{r, echo=FALSE}
-md_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE)+
-  labs(y = "Most Common Words")
-```
-
-:::
-
-## Word frequencies: Massachusetts {.smaller}
-Ratification year: 1780
-
-::: {.panel-tabset}
-
-### Most common words
-```{r, echo=FALSE}
-ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm"
-ma_html <- read_html(ma_url)
-
-ma_text <- html_text(ma_html)
-
-ma_con <- data.frame(word = unlist(strsplit(ma_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
-
-rows_to_exclude_ma <- c(11433:11445)
-
-ma_con_tidy <- ma_con %>%
-  mutate(word = tolower(word)) %>%
-  mutate(word=gsub("[[:space:]]", "", word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_ma))
-
-ma_con_join <- ma_con_tidy %>%
-  mutate(state = rep("Massachusetts"))
-
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-ma_word_count <- ma_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-ma_con_tidy_nostop <- ma_con_tidy %>%
- anti_join(stop_words) 
-ma_con_tidy_nostop %>%
+nc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", ""))
-
+  filter(!word%in%c("(--", " "))
 ```
 
 ### Histogram
 ```{r, echo=FALSE}
-ma_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE)+
-  labs(y = "Most Common Words")
-```
-
-:::
-
-## Word frequencies: New Hampshire {.smaller}
-Ratification year: 1776
-
-::: {.panel-tabset}
-
-### Most common words
-```{r, echo=FALSE}
-library(rvest)
-library(dplyr)
-
-nh_url <- "https://avalon.law.yale.edu/18th_century/nh09.asp"
-nh_html <- read_html(nh_url)
-
-nh_text <- html_text(nh_html)
-
-nh_con <- data.frame(word = unlist(strsplit(nh_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
-
-rows_to_exclude_nh <- c(1:63, 994:1242)
-
-nh_con_tidy <- nh_con %>%
-  mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_nh))
-
-nh_con_join <- nh_con_tidy %>%
-  mutate(state = rep("New Hampshire"))
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-nh_word_count <- nh_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-nh_con_tidy_nostop <- nh_con_tidy %>%
- anti_join(stop_words) 
-nh_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
-```
-
-### Histogram
-```{r, echo=FALSE}
-nh_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE)+
-  labs(y = "Most Common Words")
-```
-
-:::
-
-## Word frequencies: New Jersey {.smaller}
-Ratification year: 1776
-
-::: {.panel-tabset}
-
-### Most common words
-```{r, echo=FALSE}
-library(rvest)
-library(dplyr)
-
-nj_url <- "https://avalon.law.yale.edu/18th_century/nj15.asp"
-nj_html <- read_html(nj_url)
-
-nj_text <- html_text(nj_html)
-
-nj_con <- data.frame(word = unlist(strsplit(nj_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
-
-rows_to_exclude_nj <- c(1:55, 2524:2889)
-
-nj_con_tidy <- nj_con %>%
-  mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_nj))
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-nj_word_count <- nj_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-nj_con_tidy_nostop <- nj_con_tidy %>%
- anti_join(stop_words) 
-nj_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
-```
-
-### Histogram
-```{r, echo=FALSE}
-nj_con_tidy_nostop %>%
+nc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -550,56 +547,55 @@ ny_con_tidy_nostop %>%
 
 :::
 
-## Word frequencies: North Carolina {.smaller}
-Ratification year: 1776
+## Word frequencies: Georgia {.smaller}
+Ratification year: 1777
 
 ::: {.panel-tabset}
 
 ### Most common words
 ```{r, echo=FALSE}
-
 library(rvest)
 library(dplyr)
 
-nc_url <- "https://avalon.law.yale.edu/18th_century/nc07.asp"
-nc_html <- read_html(nc_url)
+ga_url <- "https://avalon.law.yale.edu/18th_century/ga02.asp"
+ga_html <- read_html(ga_url)
 
-nc_text <- html_text(nc_html)
+ga_text <- html_text(ga_html)
 
-nc_con <- data.frame(word = unlist(strsplit(nc_text, "\\s+"))) %>%
+ga_con <- data.frame(word = unlist(strsplit(ga_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude <- c(1:58, 3991:4231)
+rows_to_exclude_ga <- c(1:56, 4422:4652)
 
-nc_con_tidy <- nc_con %>%
+ga_con_tidy <- ga_con %>%
   mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude))
+  filter(!(row_number() %in% rows_to_exclude_ga))
 
-nc_con_join <- nc_con_tidy %>%
-  mutate(state = rep("North Carolina"))
+ga_con_join <- ga_con_tidy %>%
+  mutate(state = rep("Georgia"))
+
 ```
 
 ```{r, echo=FALSE}
 library(tidyverse)
 library(tidytext)
-nc_word_count <- nc_con_tidy %>%
+ga_word_count <- ga_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
 data("stop_words")
-nc_con_tidy_nostop <- nc_con_tidy %>%
+ga_con_tidy_nostop <- ga_con_tidy %>%
  anti_join(stop_words) 
-nc_con_tidy_nostop %>%
+ga_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
+    slice_max(n = 20, order_by = n) 
 ```
 
 ### Histogram
-```{r, echo=FALSE}
-nc_con_tidy_nostop %>%
+```{r}
+ga_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -610,48 +606,47 @@ nc_con_tidy_nostop %>%
 
 :::
 
-## Word frequencies: Pennsylvania {.smaller}
-Ratification year: 1776
+## Word frequencies: South Carolina {.smaller}
+Ratification year: 1778
 
 ::: {.panel-tabset}
 
 ### Most common words
 ```{r, echo=FALSE}
-
 library(rvest)
 library(dplyr)
 
-pa_url <- "https://avalon.law.yale.edu/18th_century/pa08.asp"
-pa_html <- read_html(pa_url)
+sc_url <- "https://avalon.law.yale.edu/18th_century/sc02.asp"
+sc_html <- read_html(sc_url)
 
-pa_text <- html_text(pa_html)
+sc_text <- html_text(sc_html)
 
-pa_con <- data.frame(word = unlist(strsplit(pa_text, "\\s+"))) %>%
+sc_con <- data.frame(word = unlist(strsplit(sc_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude <- c(1:57, 6196:6533)
+rows_to_exclude <- c(1:58, 5639:5880)
 
-pa_con_tidy <- pa_con %>%
+sc_con_tidy <- sc_con %>%
   mutate(word = tolower(word)) %>%
   filter(!(row_number() %in% rows_to_exclude))
 
-pa_con_join <- pa_con_tidy %>%
-  mutate(state = rep("Pennsylvania"))
+sc_con_join <- sc_con_tidy %>%
+  mutate(state = rep("South Carolina"))
 ```
 
 ```{r, echo=FALSE}
 library(tidyverse)
 library(tidytext)
-pa_word_count <- pa_con_tidy %>%
+sc_word_count <- sc_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
 data("stop_words")
-pa_con_tidy_nostop <- pa_con_tidy %>%
+sc_con_tidy_nostop <- sc_con_tidy %>%
  anti_join(stop_words) 
-pa_con_tidy_nostop %>%
+nc_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
@@ -659,7 +654,126 @@ pa_con_tidy_nostop %>%
 
 ### Histogram
 ```{r, echo=FALSE}
-pa_con_tidy_nostop %>%
+sc_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+:::
+
+## Word frequencies: Massachusetts {.smaller}
+Ratification year: 1780
+
+::: {.panel-tabset}
+
+### Most common words
+```{r, echo=FALSE}
+ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm"
+ma_html <- read_html(ma_url)
+
+ma_text <- html_text(ma_html)
+
+ma_con <- data.frame(word = unlist(strsplit(ma_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+
+rows_to_exclude_ma <- c(11433:11445)
+
+ma_con_tidy <- ma_con %>%
+  mutate(word = tolower(word)) %>%
+  mutate(word=gsub("[[:space:]]", "", word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ma))
+
+ma_con_join <- ma_con_tidy %>%
+  mutate(state = rep("Massachusetts"))
+
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+ma_word_count <- ma_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+ma_con_tidy_nostop <- ma_con_tidy %>%
+ anti_join(stop_words) 
+ma_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(art.", ""))
+
+```
+
+### Histogram
+```{r, echo=FALSE}
+ma_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+
+:::
+
+
+## Word frequencies: Delaware {.smaller}
+Ratification year: 1787
+
+::: {.panel-tabset}
+
+### Most common words
+```{r, echo=FALSE}
+library(rvest)
+library(dplyr)
+
+de_url <- "https://avalon.law.yale.edu/18th_century/de02.asp"
+de_html <- read_html(de_url)
+
+de_text <- html_text(de_html)
+
+de_con <- data.frame(word = unlist(strsplit(de_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+
+rows_to_exclude <- c(1:54, 3721:3796)
+
+de_con_tidy <- de_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude))
+
+de_con_join <- de_con_tidy %>%
+  mutate(state = rep("Delaware"))
+
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+de_word_count <- de_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+de_con_tidy_nostop <- de_con_tidy %>%
+ anti_join(stop_words) 
+de_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) 
+```
+
+### Histogram
+```{r, echo=FALSE}
+de_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -730,123 +844,12 @@ ri_con_tidy_nostop %>%
 
 :::
 
-## Word frequencies: South Carolina {.smaller}
-Ratification year: 1778
+
+## Keyword Maps {.smaller}
 
 ::: {.panel-tabset}
 
-### Most common words
-```{r, echo=FALSE}
-library(rvest)
-library(dplyr)
-
-sc_url <- "https://avalon.law.yale.edu/18th_century/sc02.asp"
-sc_html <- read_html(sc_url)
-
-sc_text <- html_text(sc_html)
-
-sc_con <- data.frame(word = unlist(strsplit(sc_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
-
-rows_to_exclude <- c(1:58, 5639:5880)
-
-sc_con_tidy <- sc_con %>%
-  mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude))
-
-sc_con_join <- sc_con_tidy %>%
-  mutate(state = rep("South Carolina"))
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-sc_word_count <- sc_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-sc_con_tidy_nostop <- sc_con_tidy %>%
- anti_join(stop_words) 
-nc_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
-```
-
-### Histogram
-```{r, echo=FALSE}
-sc_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE)+
-  labs(y = "Most Common Words")
-```
-
-:::
-
-## Word frequencies: Virginia {.smaller}
-Ratification year: 1776
-
-::: {.panel-tabset}
-
-### Most common words
-```{r, echo=FALSE}
-va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
-va_html <- read_html(va_url)
-
-va_text <- html_text(va_html)
-
-va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
-
-rows_to_exclude_va <- c(1:201, 3680:3689)
-
-va_con_tidy <- va_con %>%
-  mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_va))
-
-va_con_join <- va_con_tidy %>%
-  mutate(state = rep("Virgina"))
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-va_word_count <- va_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-va_con_tidy_nostop <- va_con_tidy %>%
- anti_join(stop_words) 
-va_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
-
-```
-
-### Histogram
-```{r, echo=FALSE}
-va_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE) +
-  labs(y = "Most Common Words")
-```
-
-:::
-
-## Maps
+### Freedom
 ```{r, echo=FALSE}
 ct_word_count <- ct_word_count %>%
   mutate(state = rep("Connecticut"))
@@ -918,16 +921,45 @@ freedom_map <- ggplot(map_data, aes(fill = freedom)) + geom_sf(aes(geometry = ge
 freedom_map
 ```
 
-## map 2
-
+### Liberty
 ```{r}
-ct_all_words <- ct_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  mutate(state = rep("Connecticut"))
+liberty_map <- ggplot(map_data, aes(fill = liberty)) + geom_sf(aes(geometry = geometry))
+liberty_map
 ```
 
-## next map
+### Welfare
+```{r}
+welfare_map <- ggplot(map_data, aes(fill = welfare)) + geom_sf(aes(geometry = geometry))
+welfare_map
+```
+
+### Consent
+```{r}
+consent_map <- ggplot(map_data, aes(fill = consent)) + geom_sf(aes(geometry = geometry))
+consent_map
+```
+
+### Prohibit
+```{r}
+prohibit_map <- ggplot(map_data, aes(fill = prohibit)) + geom_sf(aes(geometry = geometry))
+prohibit_map
+```
+
+### Equality
+```{r}
+equality_map <- ggplot(map_data, aes(fill = equality)) + geom_sf(aes(geometry = geometry))
+equality_map
+```
+
+### Rights
+```{r}
+rights_map <- ggplot(map_data, aes(fill = rights)) + geom_sf(aes(geometry = geometry))
+rights_map
+```
+
+:::
+
+## Most common words across all 13 states
 ```{r}
 ct_all_words <- ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
