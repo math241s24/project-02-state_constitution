@@ -425,7 +425,7 @@ va_con_join <- va_con_tidy %>%
 
 ```{r}
 
-federal_url <- "https://constitutioncenter.org/the-constitution/full-text"
+federal_url <- "https://www.usconstitution.net/const-html/"
 federal_html <- read_html(federal_url)
 
 federal_text <- html_text(federal_html)
@@ -434,7 +434,7 @@ federal_con <- data.frame(word = unlist(strsplit(federal_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
-rows_to_exclude_federal <- c(1:201, 3680:3689)
+rows_to_exclude_federal <- c(1:1900, 10012:11573)
 
 federal_con_tidy <- federal_con %>%
   mutate(word = tolower(word)) %>%
@@ -443,6 +443,22 @@ federal_con_tidy <- federal_con %>%
 federal_con_join <- federal_con_tidy %>%
   mutate(state = rep("Federal"))
 ```
+
+```{r}
+federal_word_count <- federal_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+federal_con_tidy_nostop <- federal_con_tidy %>%
+ anti_join(stop_words) 
+federal_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
+```
+
 
 \<\<\<\<\<\<\< HEAD
 
