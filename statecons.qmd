@@ -44,6 +44,7 @@ ct_html <- read_html(ct_url)
 ct_text <- html_text(ct_html)
 
 ct_con <- data.frame(word = unlist(strsplit(ct_text, "\\s+"))) %>%
+
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) %>%
   filter(!word=="")
@@ -60,8 +61,6 @@ ct_con_join <- ct_con_tidy %>%
 ```
 
 ```{r}
-library(tidyverse)
-library(tidytext)
 ct_word_count <- ct_con_tidy %>%
   filter(word %in%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
@@ -73,7 +72,6 @@ ct_con_tidy_nostop <- ct_con_tidy %>%
 ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) 
-#WHY U HAVE SPACE
 ```
 
 ## Delaware
@@ -88,8 +86,7 @@ de_html <- read_html(de_url)
 de_text <- html_text(de_html)
 
 de_con <- data.frame(word = unlist(strsplit(de_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude <- c(1:54, 3721:3796)
 
@@ -100,22 +97,6 @@ de_con_tidy <- de_con %>%
 de_con_join <- de_con_tidy %>%
   mutate(state = rep("Delaware"))
 
-```
-
-```{r}
-library(tidyverse)
-library(tidytext)
-de_word_count <- de_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-de_con_tidy_nostop <- de_con_tidy %>%
- anti_join(stop_words) 
-de_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
 ```
 
 ## Georgia
@@ -130,8 +111,7 @@ ga_html <- read_html(ga_url)
 ga_text <- html_text(ga_html)
 
 ga_con <- data.frame(word = unlist(strsplit(ga_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_ga <- c(1:56, 4422:4652)
 
@@ -142,22 +122,6 @@ ga_con_tidy <- ga_con %>%
 ga_con_join <- ga_con_tidy %>%
   mutate(state = rep("Georgia"))
 
-```
-
-```{r}
-library(tidyverse)
-library(tidytext)
-ga_word_count <- ga_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-ga_con_tidy_nostop <- ga_con_tidy %>%
- anti_join(stop_words) 
-ga_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
 ```
 
 ## Maryland
@@ -172,8 +136,7 @@ md_html <- read_html(md_url)
 md_text <- html_text(md_html)
 
 md_con <- data.frame(word = unlist(strsplit(md_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_md <- c(1:94, 2623:2669, 8854:9084)
 
@@ -185,22 +148,6 @@ md_con_join <- md_con_tidy %>%
   mutate(state = rep("Maryland"))
 ```
 
-```{r}
-library(tidyverse)
-library(tidytext)
-md_word_count <- md_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-md_con_tidy_nostop <- md_con_tidy %>%
- anti_join(stop_words) 
-md_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
-```
-
 ## Massachusetts
 
 ```{r}
@@ -210,14 +157,12 @@ ma_html <- read_html(ma_url)
 ma_text <- html_text(ma_html)
 
 ma_con <- data.frame(word = unlist(strsplit(ma_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_ma <- c(11433:11445)
 
 ma_con_tidy <- ma_con %>%
   mutate(word = tolower(word)) %>%
-  mutate(word=gsub("[[:space:]]", "", word)) %>%
   filter(!(row_number() %in% rows_to_exclude_ma))
 
 ma_con_join <- ma_con_tidy %>%
@@ -225,6 +170,7 @@ ma_con_join <- ma_con_tidy %>%
 
 ```
 
+<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -243,6 +189,8 @@ ma_con_tidy_nostop %>%
 
 ```
 
+=======
+>>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 ## New Hampshire
 
 ```{r}
@@ -255,8 +203,7 @@ nh_html <- read_html(nh_url)
 nh_text <- html_text(nh_html)
 
 nh_con <- data.frame(word = unlist(strsplit(nh_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_nh <- c(1:63, 994:1242)
 
@@ -266,23 +213,6 @@ nh_con_tidy <- nh_con %>%
 
 nh_con_join <- nh_con_tidy %>%
   mutate(state = rep("New Hampshire"))
-```
-
-```{r}
-library(tidyverse)
-library(tidytext)
-nh_word_count <- nh_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-nh_con_tidy_nostop <- nh_con_tidy %>%
- anti_join(stop_words) 
-nh_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
 ```
 
 ## New Jersey
@@ -297,8 +227,7 @@ nj_html <- read_html(nj_url)
 nj_text <- html_text(nj_html)
 
 nj_con <- data.frame(word = unlist(strsplit(nj_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_nj <- c(1:55, 2524:2889)
 
@@ -307,26 +236,10 @@ nj_con_tidy <- nj_con %>%
   filter(!(row_number() %in% rows_to_exclude_nj))
 ```
 
-```{r}
-library(tidyverse)
-library(tidytext)
-nj_word_count <- nj_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-nj_con_tidy_nostop <- nj_con_tidy %>%
- anti_join(stop_words) 
-nj_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(art.", " "))
-```
-
 ## New York
 
 ```{r}
+
 library(rvest)
 library(dplyr)
 
@@ -336,8 +249,7 @@ ny_html <- read_html(ny_url)
 ny_text <- html_text(ny_html)
 
 ny_con <- data.frame(word = unlist(strsplit(ny_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude <- c(1:68, 7813:8781)
 
@@ -379,8 +291,7 @@ nc_html <- read_html(nc_url)
 nc_text <- html_text(nc_html)
 
 nc_con <- data.frame(word = unlist(strsplit(nc_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude <- c(1:58, 3991:4231)
 
@@ -390,23 +301,6 @@ nc_con_tidy <- nc_con %>%
 
 nc_con_join <- nc_con_tidy %>%
   mutate(state = rep("North Carolina"))
-```
-
-```{r}
-library(tidyverse)
-library(tidytext)
-nc_word_count <- nc_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-nc_con_tidy_nostop <- nc_con_tidy %>%
- anti_join(stop_words) 
-nc_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
 ```
 
 ## Pennsylvania
@@ -422,8 +316,7 @@ pa_html <- read_html(pa_url)
 pa_text <- html_text(pa_html)
 
 pa_con <- data.frame(word = unlist(strsplit(pa_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude <- c(1:57, 6196:6533)
 
@@ -433,23 +326,6 @@ pa_con_tidy <- pa_con %>%
 
 pa_con_join <- pa_con_tidy %>%
   mutate(state = rep("Pennsylvania"))
-```
-
-```{r}
-library(tidyverse)
-library(tidytext)
-pa_word_count <- pa_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-pa_con_tidy_nostop <- pa_con_tidy %>%
- anti_join(stop_words) 
-pa_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
 ```
 
 ## Rhode Island
@@ -466,7 +342,6 @@ ri_con <- data.frame(word = unlist(strsplit(ri_text, "\\s+"))) %>%
   filter(!word=="")
 
 
-
 rows_to_exclude_ri <- c(1:200, 7322:7331)
 
 ri_con_tidy <- ri_con %>%
@@ -477,6 +352,7 @@ ri_con_join <- ri_con_tidy %>%
   mutate(state = rep("Rhode Island"))
 ```
 
+<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -495,6 +371,8 @@ ri_con_tidy_nostop %>%
 
 ```
 
+=======
+>>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 ## South Carolina
 
 ```{r}
@@ -507,8 +385,7 @@ sc_html <- read_html(sc_url)
 sc_text <- html_text(sc_html)
 
 sc_con <- data.frame(word = unlist(strsplit(sc_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude <- c(1:58, 5639:5880)
 
@@ -520,23 +397,6 @@ sc_con_join <- sc_con_tidy %>%
   mutate(state = rep("South Carolina"))
 ```
 
-```{r}
-library(tidyverse)
-library(tidytext)
-sc_word_count <- sc_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-sc_con_tidy_nostop <- sc_con_tidy %>%
- anti_join(stop_words) 
-nc_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
-```
-
 ## Virginia
 
 ```{r}
@@ -546,8 +406,7 @@ va_html <- read_html(va_url)
 va_text <- html_text(va_html)
 
 va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != "")  
 
 rows_to_exclude_va <- c(1:201, 3680:3689)
 
@@ -559,6 +418,7 @@ va_con_join <- va_con_tidy %>%
   mutate(state = rep("Virgina"))
 ```
 
+<<<<<<< HEAD
 ## Federal
 
 ```{r}
@@ -601,8 +461,13 @@ va_con_tidy_nostop %>%
   filter(!word%in%c("(--", " "))
 
 ```
+=======
+## 13 colonies data frame and map
+>>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 
 ```{r}
+library(tmap)
+library(tigris)
 thirteen_cons <- rbind(ct_con_join,
                        de_con_join,
                        ga_con_join,
