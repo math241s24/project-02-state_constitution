@@ -37,6 +37,8 @@ Virginia: <https://www.wordservice.org/State%20Constitutions/usa1025.htm> (Basil
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
 
 ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
 ct_html <- read_html(ct_url)
@@ -423,12 +425,12 @@ va_con_join <- va_con_tidy %>%
 
 ```{r}
 
-federal_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
+federal_url <- "https://constitutioncenter.org/the-constitution/full-text"
 federal_html <- read_html(federal_url)
 
 federal_text <- html_text(federal_html)
 
-federal_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
+federal_con <- data.frame(word = unlist(strsplit(federal_text, "\\s+"))) %>%
   filter(word != "")  %>%
   mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
 
