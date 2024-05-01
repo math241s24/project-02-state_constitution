@@ -39,6 +39,8 @@ library(rvest)
 library(dplyr)
 library(tidytext)
 library(stringr)
+library(ggplot2)
+library(forcats)
 
 ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
 ct_html <- read_html(ct_url)
@@ -457,6 +459,14 @@ federal_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
     slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
+
+federal_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE) +
+  labs(y = "Most Common Words")
 ```
 
 
