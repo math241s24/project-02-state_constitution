@@ -420,19 +420,19 @@ va_all_words <- va_con_tidy_nostop %>%
   filter(!word%in%c("(--", " ")) %>%
   mutate(state = rep("Virginia"))
 
-thirteen_cons <- do.call(rbind, list(ct_word_count, 
-                                     de_word_count, 
-                                     ga_word_count, 
-                                     ma_word_count, 
-                                     md_word_count, 
-                                     nc_word_count, 
-                                     nh_word_count, 
-                                     nj_word_count, 
-                                     ny_word_count, 
-                                     pa_word_count, 
-                                     ri_word_count, 
-                                     sc_word_count, 
-                                     va_word_count))
+thirteen_cons <- bind_rows(ct_word_count, 
+                          de_word_count, 
+                          ga_word_count, 
+                          ma_word_count, 
+                          md_word_count, 
+                          nc_word_count, 
+                          nh_word_count, 
+                          nj_word_count, 
+                          ny_word_count, 
+                          pa_word_count, 
+                          ri_word_count, 
+                          sc_word_count, 
+                          va_word_count)
 states <- states()
 
 map_data <- thirteen_cons %>% 
