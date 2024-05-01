@@ -433,8 +433,8 @@ federal_html <- read_html(federal_url)
 federal_text <- html_text(federal_html)
 
 federal_con <- data.frame(word = unlist(strsplit(federal_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) 
+  filter(word != ""& word != "–") %>%
+  mutate(word = str_trim(word))
 
 rows_to_exclude_federal <- c(1:1900, 10012:11573)
 
