@@ -10,10 +10,6 @@ execute:
   message: false
 ---
 
-## Abstract
-
-## Introduction
-
 **Introduction**
 
 In our project, we aim to understand how the language used in the state constitutions of the original 13 colonies of the United States might explain political or legal differences between the states. To do this, we picked seven keywords that relate both to individual and group political and social freedoms; "freedom," "liberty," "welfare," "consent," "prohibit," "equality," and "rights," and analyzed each constitution for the frequency of these keywords. We also chose to analyze the top 20 words in each state constitution (minus stop words) regardless of keywords, since as we began our first analysis we realized that not every constitution included every keyword. Most of our text datasets were scraped from the [Avalon Project](https://avalon.law.yale.edu/), a database of key historical documents established by Yale Law School. There were three states whose constitutions were not available on the Avalon database: Rhode Island, Virginia, and Connecticut. Rhode Island and Virginia were scraped from Word Service and Connecticut was scraped from the Conneticut General assembly website. After our in-class presentation, we also chose to scrape the text of the federal Constitution and analyze it for both our keywords and the top 20 words in order to provide a better comparison for the language used in constitutions.
@@ -53,6 +49,12 @@ va_word_count <- va_con_tidy %>%
   c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word)
 
+```
+
+We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram (and the necessary data wrangling and removing of stop words) can be found below: 
+
+```{r, eval = FALSE}
+
 data("stop_words")
 va_con_tidy_nostop <- va_con_tidy %>%
  anti_join(stop_words)
@@ -60,11 +62,7 @@ va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
 	slice_max(n = 20, order_by = n) %>%
   filter(!word%in%c("(--", " "))
-```
 
-We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram can be found below (this created the Virginia histogram): 
-
-```{r, eval = FALSE}
 va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
