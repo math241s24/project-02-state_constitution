@@ -24,11 +24,43 @@ We decided to create a ShinyApp that shows the frequency of our keywords for eac
 
 Our process began by scraping the data and cleaning it. An example of this process, here applied to the Virginia state constitution, is below:
 
-INSERT SCRAPE
+```{r}
+va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
+va_html <- read_html(va_url)
+
+va_text <- html_text(va_html)
+
+va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", ""))
+
+rows_to_exclude_va <- c(1:201, 3680:3689)
+
+va_con_tidy <- va_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_va))
+
+va_con_join <- va_con_tidy %>%
+  mutate(state = rep("Virgina"))
+
+```
 
 In the next code chunk, we search for our keywords:
 
-INSERT CODE
+```{r}
+va_word_count <- va_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+va_con_tidy_nostop <- va_con_tidy %>%
+ anti_join(stop_words)
+va_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+	slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
+```
 
 We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram can be found below (this created the Virginia histogram): 
 
