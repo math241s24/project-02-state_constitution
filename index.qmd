@@ -18,9 +18,17 @@ execute:
 
 In our project, we aim to understand how the language used in the state constitutions of the original 13 colonies of the United States might explain political or legal differences between the states. To do this, we picked seven keywords that relate both to individual and group political and social freedoms; "freedom," "liberty," "welfare," "consent," "prohibit," "equality," and "rights," and analyzed each constitution for the frequency of these keywords. We also chose to analyze the top 20 words in each state constitution (minus stop words) regardless of keywords, since as we began our first analysis we realized that not every constitution included every keyword. Most of our text datasets were scraped from the [Avalon Project](https://avalon.law.yale.edu/), a database of key historical documents established by Yale Law School. There were three states whose constitutions were not available on the Avalon database: Rhode Island, Virginia, and Connecticut. Rhode Island and Virginia were scraped from Word Service and Connecticut was scraped from the Conneticut General assembly website. After our in-class presentation, we also chose to scrape the text of the federal Constitution and analyze it for both our keywords and the top 20 words in order to provide a better comparison for the language used in constitutions.
 
-**Justification of Approach:**
+**Justification of Approach, Code, and Visualizations:**
 
 We decided to create a ShinyApp that shows the frequency of our keywords for each state. We decided to make these apps interactive with the variable of time, so the viewer can see when different states ratified their constitutions. This will help us visualize whether or not the year a state ratified its constitution has an effect on the language used within it, and specifically the frequency of our keywords. Many of the states were ratified around 1776, the same year that the Declaration of Independence was signed, but the Federal Constitution was not officially ratified until 1788 and did not take effect until 1789 (its weaker predecessor, the Articles of Confederation, was ratified in 1781), and some states, such as Rhode Island, did not ratify their constitutions until as late as 1843. Thus, time is an important variable to consider when discussing constitutional language, especially considering the fervent debate and frequent changes in how the United States was to be governed in the late eighteenth century.
+
+Our process began by scraping the data and cleaning it. An example of this process, here applied to the Virginia state constitution, is below:
+
+INSERT SCRAPE
+
+In the next code chunk, we search for our keywords:
+
+INSERT CODE
 
 We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram can be found below (this created the Virginia histogram): 
 
@@ -65,8 +73,6 @@ most_used_map <- ggplot(all_words_map_data, aes(fill = word)) +
 most_used_map
 
 ```
-
-**Code/Visualization**
 
 **Discussion**
 
