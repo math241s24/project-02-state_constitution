@@ -14,17 +14,57 @@ execute:
 
 ## Introduction
 
-Introduction
+**Introduction**
 
-In our project, we aim to understand how the language used in the state constitutions of the original 13 colonies of the United States might explain political or legal differences between the states. To do this, we picked seven keywords that relate both to individual and group political and social freedoms; "freedom," "liberty," "welfare," "consent," "prohibit," "equality," and "rights," and analyzed each constitution for the frequency of these keywords. We also chose to analyze the top 20 words in each state constitution (minus stop words) regardless of keywords, since as we began our first analysis we realized that not every constitution included every keyword. Most of our text datasets were scraped from the Avalon Project, a database of key historical documents established by Yale Law School. There were three states whose constitutions were not available on the Avalon database: Rhode Island, Virginia, and Connecticut. Rhode Island and Virginia were scraped from Word Service and Connecticut was scraped from the Conneticut General assembly website. After our in-class presentation, we also chose to scrape the text of the federal Constitution and analyze it for both our keywords and the top 20 words in order to provide a better comparison for the language used in constitutions.
+In our project, we aim to understand how the language used in the state constitutions of the original 13 colonies of the United States might explain political or legal differences between the states. To do this, we picked seven keywords that relate both to individual and group political and social freedoms; "freedom," "liberty," "welfare," "consent," "prohibit," "equality," and "rights," and analyzed each constitution for the frequency of these keywords. We also chose to analyze the top 20 words in each state constitution (minus stop words) regardless of keywords, since as we began our first analysis we realized that not every constitution included every keyword. Most of our text datasets were scraped from the [Avalon Project](https://avalon.law.yale.edu/), a database of key historical documents established by Yale Law School. There were three states whose constitutions were not available on the Avalon database: Rhode Island, Virginia, and Connecticut. Rhode Island and Virginia were scraped from Word Service and Connecticut was scraped from the Connecticut General assembly website. After our in-class presentation, we also chose to scrape the text of the federal Constitution and analyze it for both our keywords and the top 20 words in order to provide a better comparison for the language used in constitutions.
 
+**Justification of Approach, Code, and Visualizations:**
 
+We decided to create a ShinyApp that shows the frequency of our keywords for each state. We decided to make these apps interactive with the variable of time, so the viewer can see when different states ratified their constitutions. This will help us visualize whether or not the year a state ratified its constitution has an effect on the language used within it, and specifically the frequency of our keywords. Many of the states were ratified around 1776, the same year that the Declaration of Independence was signed, but the Federal Constitution was not officially ratified until 1788 and did not take effect until 1789 (its weaker predecessor, the Articles of Confederation, was ratified in 1781), and some states, such as Rhode Island, did not ratify their constitutions until as late as 1843. Thus, time is an important variable to consider when discussing constitutional language, especially considering the fervent debate and frequent changes in how the United States was to be governed in the late eighteenth century.
 
-Justification of Approach:
+Our process began by scraping the data and cleaning it. An example of this process, here applied to the Virginia state constitution, is below:
 
-We decided to create a ShinyApp that shows the frequency of our keywords for each state. We decided to make these apps interactive with the variable of time, so the viewer can see when different states ratified their constitutions. This will help us visualize whether or not the year a state ratified its constitution has an effect on the language used within it, and specifically the frequency of our keywords. Many of the states were ratified around 1776, the same year that the Declaration of Independence was signed, but the Federal Constitution was not officially ratified until 1788 and did not take effect until 1789 (its weaker predecessor, the Articles of Confederation, was ratified in 1781), and some states, such as Rhode Island, did not ratify their constitutions until as late as 1843. Thus, time is an important variable to consider when discussing constitutional language, especially considering the fervent debate and frequent changes in how the United States was to be governed in the late eighteenth century. 
+```{r, eval = FALSE}
+va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
+va_html <- read_html(va_url)
 
-We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram can be found below (this created the Virginia histogram): 
+va_text <- html_text(va_html)
+
+va_con <- data.frame(word = unlist(strsplit(va_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", ""))
+
+rows_to_exclude_va <- c(1:201, 3680:3689)
+
+va_con_tidy <- va_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_va))
+
+va_con_join <- va_con_tidy %>%
+  mutate(state = rep("Virgina"))
+```
+
+In the next code chunk, we search for our keywords:
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(tidytext)
+va_word_count <- va_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+```
+
+We also chose to create a frequency histogram for the top 20 words in each state (minus stop words), regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram can be found below (this created the Virginia histogram): 
+
+```{r, eval = FALSE}
+data("stop_words")
+va_con_tidy_nostop <- va_con_tidy %>%
+ anti_join(stop_words)
+va_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+	slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
 
 va_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
@@ -33,9 +73,11 @@ va_con_tidy_nostop %>%
   geom_col() +
   guides(fill = FALSE) +
   labs(y = "Most Common Words")
+```
 
 We also made a map of the most common words across all 13 states. The most common words were "art" (short for article), "council," "county," "government," "house," "people," "person," "sec," (short for section) and "sect" (also short for section). The code for this map can be seen below:
 
+```{r, eval = FALSE}
 thirteen_cons2 <- rbind(ct_all_words,
                    	de_all_words,
                    	ga_all_words,
@@ -62,12 +104,17 @@ most_used_map <- ggplot(all_words_map_data, aes(fill = word)) +
   geom_sf(aes(geometry = geometry))
 
 most_used_map
-Code/Visualization
 
+```
 
-Discussion
+**Discussion**
 
-In our analysis of the state constitutions, we found that much of the language used (as displayed by the top 20 words) was very logistical and administrative in nature; for instance, the top three words in Virginia's constitution were "house," "government," and "people." These words, and many others like them, are not charged with emotional language or linked to particular political or moral stances; rather, they seek to establish a basic framework for governance. Another popular word among all constitutions was "sec" or "section," which simply refers to different sections of the document. 
+In our analysis of the state constitutions, we found that much of the language used (as displayed by the top 20 words) was very logistical and administrative in nature; for instance, the top three words in Virginia's constitution were "house," "government," and "people." These words, and many others like them, are not charged with emotional language or linked to particular political or moral stances; rather, they seek to establish a basic framework for governance. Another popular word among all constitutions was "sec" or "section," which simply refers to different sections of the document.
 
+Additionally, the map of the most common words across all 13 states supports our conclusion that most language used in constitutions is administrative in nature. As explicated above, the most common words were "art," "council," "county," "government," "house," "people," "person," "sec," and "sect." Three of these words (art, sec, and sect) refer to different sections of the document, and the others all refer to either the governing system (council, county, government, house) or those who are governed (people, person).
 
-Additionally, the map of the most common words across all 13 states supports our conclusion that most language used in constitutions is administrative in nature. As explicated above, the most common words were "art," "council," "county," "government," "house," "people," "person," "sec," and "sect." Three of these words (art, sec, and sect) refer to different sections of the document, and the others all refer to either the governing system (council, county, government, house) or those who are governed (people, person). 
+Our ShinyApp made comparing the frequency of keywords across states quite easy, and also helped us understand the relatively small amount of mentions all of these keywords had. It also provided a geographical reference for all states, although there did not seem to be a clear link between keyword concentration and geographical location.
+
+Adding the Federal Constitution to our analysis also helped provide us with a better understanding of the language typically used in constitutions. Much of the language in the federal constitution was still quite administrative or classifying in nature, with the top three words being "United" (likely contained within the phrase "the United States"), "president," and "congress," all words that either described the name of the country or important branches of its power. It did, however, include a couple words that had the potential to be slightly more emotionally charged based on context; for instance, "duties" could refer to administrative duties such as time served, but it could also refer to the moral duties that the representatives of a governing body have to their citizens. The word "history" also appeared, which, depending on context, could refer to the tumultuous history the United States had with Britain, or it could refer to the legacy the Founding Fathers wanted to leave for posterity. Overall, however, these words remain relatively administrative in nature.
+
+When reflecting upon our original question- whether the language used in the original constitutions of the 13 colonies can explain political or legal differences between the states- it is relatively clear from our histograms and keyword frequency visualizations that there does not seem to be an obvious link. Much of the language of the constitutions is relatively administrative and logistical, providing a basic framework for government function rather than providing ideological stances. It is imperative to note, however, that we did not include amendments in our analysis (our reasoning was that it would prove beyond the scale of this project to match the language in amendments to the date of the amendments, as some states have dozens of amendments ratified throughout the last two hundred years); it is possible that language in the amendments is more ideological than that of the original constitutions.
