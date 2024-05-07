@@ -15,6 +15,7 @@ library(tidytext)
 library(tmap)
 library(tigris)
 library(tidyr)
+library(RColorBrewer)
 
 ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
 ct_html <- read_html(ct_url)
@@ -35,7 +36,9 @@ ct_con_tidy <- ct_con %>%
 ct_word_count <- ct_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word) 
+  count(word)  %>%
+  mutate(state = rep("Connecticut"),
+         year = rep(1818))
 
 data("stop_words")
 ct_con_tidy_nostop <- ct_con_tidy %>%
@@ -64,7 +67,8 @@ de_word_count <- de_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Delaware"))
+  mutate(state = rep("Delaware"),
+         year = rep(1776))
 
 
 de_con_tidy_nostop <- de_con_tidy %>%
@@ -93,7 +97,8 @@ ga_word_count <- ga_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Georgia"))
+  mutate(state = rep("Georgia"),
+         year = rep(1777))
 
 
 ga_con_tidy_nostop <- ga_con_tidy %>%
@@ -123,7 +128,8 @@ md_word_count <- md_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Maryland"))
+  mutate(state = rep("Maryland"),
+         year = rep(1776))
 
 
 md_con_tidy_nostop <- md_con_tidy %>%
@@ -153,7 +159,8 @@ ma_word_count <- ma_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Massachusetts"))
+  mutate(state = rep("Massachusetts"),
+         year = rep(1780))
 
 ma_con_tidy_nostop <- ma_con_tidy %>%
   anti_join(stop_words) 
@@ -182,7 +189,8 @@ nh_word_count <- nh_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("New Hampshire"))
+  mutate(state = rep("New Hampshire"),
+         year = rep(1776))
 
 
 nh_con_tidy_nostop <- nh_con_tidy %>%
@@ -213,7 +221,8 @@ nj_word_count <- nj_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("New Jersey"))
+  mutate(state = rep("New Jersey"),
+         year = rep(1776))
 
 
 nj_con_tidy_nostop <- nj_con_tidy %>%
@@ -242,7 +251,8 @@ ny_word_count <- ny_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("New York"))
+  mutate(state = rep("New York"),
+         year = rep(1777))
 
 
 ny_con_tidy_nostop <- ny_con_tidy %>%
@@ -270,7 +280,8 @@ nc_word_count <- nc_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("North Carolina"))
+  mutate(state = rep("North Carolina"),
+         year = rep(1776))
 
 
 nc_con_tidy_nostop <- nc_con_tidy %>%
@@ -301,7 +312,8 @@ pa_word_count <- pa_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Pennsylvania"))
+  mutate(state = rep("Pennsylvania"),
+         year = rep(1776))
 
 
 pa_con_tidy_nostop <- pa_con_tidy %>%
@@ -348,7 +360,8 @@ ri_word_count <- ri_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Rhode Island"))
+  mutate(state = rep("Rhode Island"),
+         year = rep(1843))
 
 ri_con_tidy_nostop <- ri_con_tidy %>%
   anti_join(stop_words) 
@@ -377,7 +390,8 @@ sc_word_count <- sc_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("South Carolina"))
+  mutate(state = rep("South Carolina"),
+         year = rep(1778))
 
 
 data("stop_words")
@@ -408,7 +422,8 @@ va_word_count <- va_con_tidy %>%
   filter(word %in%
            c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
   count(word) %>%
-  mutate(state = rep("Virginia"))
+  mutate(state = rep("Virginia"),
+         year = rep(1776))
 
 
 va_con_tidy_nostop <- va_con_tidy %>%
@@ -442,7 +457,7 @@ map_data <- thirteen_cons %>%
 
 ui <- fluidPage(
 
-    # Application title
+
     titlePanel("State Constitution Keywords"),
 
     
@@ -452,6 +467,10 @@ ui <- fluidPage(
                         "Keyword:",
                         choices = NULL),
             submitButton("Update Results!"),
+            sliderInput("year", "Filter by Year", 
+                        min = 1776, max = 1843,
+                        value = c(1776, 1843),
+                        step = 1)
         ),
 
         mainPanel(
@@ -459,7 +478,6 @@ ui <- fluidPage(
         )
     )
 )
-
 
 server <- function(input, output, session) {
   
@@ -469,18 +487,38 @@ server <- function(input, output, session) {
     keyword <- input$word
     
     keyword_data <- thirteen_cons %>% 
-      filter(word == keyword) %>% 
+      filter(word == keyword, year >= input$year[1], year <= input$year[2]) %>% 
       select(state, n)
     
-    keyword_map_data <- states %>%
-      left_join(keyword_data, by = c("NAME" = "state")) %>%
-      na.omit()
+    selected_states <- c("Connecticut", "Delaware", "Georgia", "Massachusetts", "Maryland", 
+                         "New Jersey", "New York", "North Carolina", "Rhode Island", 
+                         "South Carolina", "Virginia", "New Hampshire", "Pennsylvania")
+    
+    
+    filtered_states <- states %>%
+      filter(NAME %in% selected_states)
+    
+    
+    keyword_map_data <- left_join(filtered_states, keyword_data, by = c("NAME" = "state"))
+    
+    
+    no_data_color <- "gray"
+    orange_palette <- brewer.pal(9, "Oranges")
+    
+    
+    keyword_map_data$n[is.na(keyword_map_data$n)] <- 0
     
     tm_shape(keyword_map_data) +
-      tm_fill(col = "n", title = keyword) +
+      tm_fill(col = "n", title = keyword, palette = c(no_data_color, orange_palette), 
+              style = "cat", breaks = c(-1, 0, max(keyword_map_data$n, na.rm = TRUE))) +
       tm_borders() +
       tm_layout(title = paste("Frequency of", keyword))
   })
 }
+
+
+
+
+
 
 shinyApp(ui = ui, server = server)
