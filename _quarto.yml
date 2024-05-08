@@ -2,13 +2,13 @@ project:
   type: website
 
 website:
-  title: Project 2
+  title: Project 2 - State Constitution Analysis
   navbar:
     right:
       - icon: github
         href: https://github.com/math241s24/project-02-state_constitution
     left:
-      - text: Project
+      - text: "Write-up"
         href: index.qmd
       - text: "Proposal"
         href: proposal.qmd
