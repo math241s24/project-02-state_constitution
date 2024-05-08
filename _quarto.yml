@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: Project 2 - State Constitution Analysis
@@ -8,6 +9,8 @@ website:
       - icon: github
         href: https://github.com/math241s24/project-02-state_constitution
     left:
+      - text: Shinyapp
+        href: stateconsapp.R
       - text: "Write-up"
         href: index.qmd
       - text: "Proposal"
