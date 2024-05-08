@@ -1,7 +1,7 @@
 ---
-title: "Project title"
+title: "State Constitution Analysis"
 subtitle: "Project 2"
-author: "Team"
+author: "Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole"
 title-slide-attributes:
   data-slide-number: none
 format: revealjs
@@ -66,7 +66,7 @@ Goal: to understand if the time a state was ratified has a large effect on the l
 |----------------|------|
 | Delaware       | 1787 |
 | Georgia        | 1777 |
-| Connecticut    | 1776 |
+| Connecticut    | 1818 |
 | Maryland       | 1776 |
 | Massachusetts  | 1780 |
 | New Hampshire  | 1776 |
@@ -358,68 +358,6 @@ nh_con_tidy_nostop %>%
 
 ```{r, echo=FALSE}
 nh_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-  top_n(20) %>%
-  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
-  geom_col() +
-  guides(fill = FALSE)+
-  labs(y = "Most Common Words")
-```
-:::
-
-## Word frequencies: Connecticut {.smaller}
-
-Ratification year: 1776
-
-::: panel-tabset
-### Most common words
-
-```{r, echo=FALSE}
-library(rvest)
-library(dplyr)
-
-ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
-ct_html <- read_html(ct_url)
-
-ct_text <- html_text(ct_html)
-
-ct_con <- data.frame(word = unlist(strsplit(ct_text, "\\s+"))) %>%
-  filter(word != "")  %>%
-  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) %>%
-  filter(!word=="")
-
-rows_to_exclude_ct <- c(1:7, 223:298, 6012:12230)
-
-ct_con_tidy <- ct_con %>%
-  mutate(word = tolower(word)) %>%
-  filter(!(row_number() %in% rows_to_exclude_ct))
-
-ct_con_join <- ct_con_tidy %>%
-  mutate(state = rep("Connecticut"))
-
-```
-
-```{r, echo=FALSE}
-library(tidyverse)
-library(tidytext)
-ct_word_count <- ct_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-ct_con_tidy_nostop <- ct_con_tidy %>%
- anti_join(stop_words) 
-ct_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) 
-
-```
-
-### Histogram
-
-```{r, echo=FALSE}
-ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
@@ -781,6 +719,68 @@ de_con_tidy_nostop %>%
 
 ```{r, echo=FALSE}
 de_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+  top_n(20) %>%
+  ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
+  geom_col() +
+  guides(fill = FALSE)+
+  labs(y = "Most Common Words")
+```
+:::
+
+## Word frequencies: Connecticut {.smaller}
+
+Ratification year: 1818
+
+::: panel-tabset
+### Most common words
+
+```{r, echo=FALSE}
+library(rvest)
+library(dplyr)
+
+ct_url <- "https://www.cga.ct.gov/asp/Content/constitutions/1818Constitution.htm"
+ct_html <- read_html(ct_url)
+
+ct_text <- html_text(ct_html)
+
+ct_con <- data.frame(word = unlist(strsplit(ct_text, "\\s+"))) %>%
+  filter(word != "")  %>%
+  mutate(word = str_replace_all(word, "[[:punct:][:space:]]+", "")) %>%
+  filter(!word=="")
+
+rows_to_exclude_ct <- c(1:7, 223:298, 6012:12230)
+
+ct_con_tidy <- ct_con %>%
+  mutate(word = tolower(word)) %>%
+  filter(!(row_number() %in% rows_to_exclude_ct))
+
+ct_con_join <- ct_con_tidy %>%
+  mutate(state = rep("Connecticut"))
+
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(tidytext)
+ct_word_count <- ct_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+ct_con_tidy_nostop <- ct_con_tidy %>%
+ anti_join(stop_words) 
+ct_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) 
+
+```
+
+### Histogram
+
+```{r, echo=FALSE}
+ct_con_tidy_nostop %>%
   count(word, sort = TRUE) %>%
   top_n(20) %>%
   ggplot(aes(y = fct_reorder(word, n), x = n, fill = n)) +
