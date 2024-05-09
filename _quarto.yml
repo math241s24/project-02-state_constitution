@@ -9,8 +9,10 @@ website:
       - icon: github
         href: https://github.com/math241s24/project-02-state_constitution
     left:
-      - text: Shinyapp
+      - text: "Interactive map"
         href: stateconsapp.R
+      - text: "Histograms (State and Federal)"
+        href: statecons.qmd
       - text: "Write-up"
         href: index.qmd
       - text: "Proposal"

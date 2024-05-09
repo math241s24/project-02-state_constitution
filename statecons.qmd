@@ -83,6 +83,10 @@ ct_con_tidy_nostop %>%
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 de_url <- "https://avalon.law.yale.edu/18th_century/de02.asp"
 de_html <- read_html(de_url)
@@ -108,6 +112,10 @@ de_con_join <- de_con_tidy %>%
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 ga_url <- "https://avalon.law.yale.edu/18th_century/ga02.asp"
 ga_html <- read_html(ga_url)
@@ -133,6 +141,10 @@ ga_con_join <- ga_con_tidy %>%
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 md_url <- "https://avalon.law.yale.edu/17th_century/ma02.asp"
 md_html <- read_html(md_url)
@@ -157,6 +169,11 @@ md_con_join <- md_con_tidy %>%
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
+
 ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm"
 ma_html <- read_html(ma_url)
 
@@ -194,12 +211,15 @@ ma_con_tidy_nostop %>%
 
 ```
 
-=======
 ## New Hampshire
 
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 nh_url <- "https://avalon.law.yale.edu/18th_century/nh09.asp"
 nh_html <- read_html(nh_url)
@@ -224,6 +244,10 @@ nh_con_join <- nh_con_tidy %>%
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 nj_url <- "https://avalon.law.yale.edu/18th_century/nj15.asp"
 nj_html <- read_html(nj_url)
@@ -243,9 +267,12 @@ nj_con_tidy <- nj_con %>%
 ## New York
 
 ```{r}
-
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 ny_url <- "https://avalon.law.yale.edu/18th_century/ny01.asp"
 ny_html <- read_html(ny_url)
@@ -285,9 +312,12 @@ ny_con_tidy_nostop %>%
 ## North Carolina
 
 ```{r}
-
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 nc_url <- "https://avalon.law.yale.edu/18th_century/nc07.asp"
 nc_html <- read_html(nc_url)
@@ -310,9 +340,12 @@ nc_con_join <- nc_con_tidy %>%
 ## Pennsylvania
 
 ```{r}
-
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 pa_url <- "https://avalon.law.yale.edu/18th_century/pa08.asp"
 pa_html <- read_html(pa_url)
@@ -335,6 +368,13 @@ pa_con_join <- pa_con_tidy %>%
 ## Rhode Island
 
 ```{r}
+library(rvest)
+library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
+
 ri_url <- "https://www.wordservice.org/State%20Constitutions/usa1031.htm"
 ri_html <- read_html(ri_url)
 
@@ -356,7 +396,6 @@ ri_con_join <- ri_con_tidy %>%
   mutate(state = rep("Rhode Island"))
 ```
 
-<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -375,13 +414,15 @@ ri_con_tidy_nostop %>%
 
 ```
 
-=======
->>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 ## South Carolina
 
 ```{r}
 library(rvest)
 library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 sc_url <- "https://avalon.law.yale.edu/18th_century/sc02.asp"
 sc_html <- read_html(sc_url)
@@ -404,6 +445,13 @@ sc_con_join <- sc_con_tidy %>%
 ## Virginia
 
 ```{r}
+library(rvest)
+library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
+
 va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
 va_html <- read_html(va_url)
 
@@ -422,10 +470,33 @@ va_con_join <- va_con_tidy %>%
   mutate(state = rep("Virgina"))
 ```
 
-<<<<<<< HEAD
+```{r}
+library(tidyverse)
+library(tidytext)
+va_word_count <- va_con_tidy %>%
+  filter(word %in%
+  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
+  count(word)
+
+data("stop_words")
+va_con_tidy_nostop <- va_con_tidy %>%
+ anti_join(stop_words) 
+va_con_tidy_nostop %>%
+  count(word, sort = TRUE) %>%
+    slice_max(n = 20, order_by = n) %>%
+  filter(!word%in%c("(--", " "))
+
+```
+
 ## Federal
 
 ```{r}
+library(rvest)
+library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
 
 federal_url <- "https://www.usconstitution.net/const-html/"
 federal_html <- read_html(federal_url)
@@ -470,28 +541,8 @@ federal_con_tidy_nostop %>%
 ```
 
 
-\<\<\<\<\<\<\< HEAD
-
-```{r}
-library(tidyverse)
-library(tidytext)
-va_word_count <- va_con_tidy %>%
-  filter(word %in%
-  c("freedom", "liberty", "welfare", "consent", "prohibit", "equality", "rights")) %>%
-  count(word)
-
-data("stop_words")
-va_con_tidy_nostop <- va_con_tidy %>%
- anti_join(stop_words) 
-va_con_tidy_nostop %>%
-  count(word, sort = TRUE) %>%
-    slice_max(n = 20, order_by = n) %>%
-  filter(!word%in%c("(--", " "))
-
-```
 =======
 ## 13 colonies data frame and map
->>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 
 ```{r}
 library(tmap)
@@ -507,10 +558,6 @@ thirteen_cons <- rbind(ct_con_join,
                        pa_con_join,
                        ri_con_join,
                        sc_con_join,
-                       va_con_join
-)
-
+                       va_con_join)
 
 ```
-
-\`\`\`

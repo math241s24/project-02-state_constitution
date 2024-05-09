@@ -206,7 +206,7 @@ md_all_words <- md_con_tidy_nostop %>%
 ## Massachusetts
 
 ```{r}
-ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm "
+ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm"
 ma_html <- read_html(ma_url)
 
 ma_text <- html_text(ma_html)
