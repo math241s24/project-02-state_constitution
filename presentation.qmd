@@ -44,8 +44,6 @@ knitr::opts_chunk$set(
 #| label: load-data
 #| include: false
 ```
-<<<<<<< Updated upstream
-=======
 
 ## Does the time a state came into being affect the keywords used in its Constitution?
 
@@ -1090,4 +1088,3 @@ most_used_map
 -   The most common words have to do with administration rather than ideology
 -   Ex. section, article, council, county, government, people
 -   Even though the map is a useful visualization, there don't seem to be geographical trends
->>>>>>> Stashed changes
