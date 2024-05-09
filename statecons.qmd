@@ -540,8 +540,6 @@ federal_con_tidy_nostop %>%
   labs(y = "Most Common Words")
 ```
 
-
-=======
 ## 13 colonies data frame and map
 
 ```{r}
