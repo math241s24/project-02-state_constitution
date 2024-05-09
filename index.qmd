@@ -51,7 +51,7 @@ va_word_count <- va_con_tidy %>%
 
 ```
 
-We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram (and the necessary data wrangling and removing of stop words) can be found below: 
+We also chose to create a frequency histogram for the top 20 words in each state, regardless of whether or not the top 20 contained our chosen keywords. We decided to do so after we analyzed each state's constitution for our keywords and realized not every state's constitution contained every keyword, and we wanted to ensure that we still got a good grasp on the most common words used in every constitution. An example of the code for the histogram (and the necessary data wrangling and removing of stop words) can be found below:
 
 ```{r, eval = FALSE}
 
