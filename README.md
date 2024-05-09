@@ -1,5 +1,4 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/QLgpPTVo)
 # project-02
- template for project 2
 
 This is the repository for the State Constitution Analysis project. Our team members are Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole. The repository contains a file called stateconsapp.R with our shinyapp, a file called statecons.qmd with all of our data in URL form and wrangling, a file called mapdoc.qmd with our map creation code, an index.qmd containing the project write-up, a quarto.yml for website function, an about.qmd with details about the project, a proposal.qmd containing the project proposal, and a presentation.qmd containing the project presentation. Since our data is pulled from URLs, it is more convenient to simply list them rather than have a data folder; they can be found at the top of statecons.qmd and mapdoc.qmd.

@@ -155,7 +155,9 @@ md_con_join <- md_con_tidy %>%
 ## Massachusetts
 
 ```{r}
-ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm "
+library(rvest)
+library(dplyr)
+ma_url <- "http://www.nhinet.org/ccs/docs/ma-1780.htm"
 ma_html <- read_html(ma_url)
 
 ma_text <- html_text(ma_html)
@@ -174,7 +176,6 @@ ma_con_join <- ma_con_tidy %>%
 
 ```
 
-<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -194,7 +195,6 @@ ma_con_tidy_nostop %>%
 ```
 
 =======
->>>>>>> 8ee2473033c6a4869b9098aea2231fa2998d1ea3
 ## New Hampshire
 
 ```{r}

@@ -17,7 +17,7 @@ website:
         href: proposal.qmd
       - text: "Presentation"
         href: presentation.qmd
-      - text: "About"
+      - text: "About State Constitution Analysis"
         href: about.qmd
 
 format:
