@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole">
+
+<title>Project 2 - State Constitution Analysis - State Constitution Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Project 2 - State Constitution Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./stateconsapp.R" rel="" target="">
+ <span class="menu-text">Interactive map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./statecons.html" rel="" target="">
+ <span class="menu-text">Histograms (State and Federal)</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Write-up</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./proposal.html" rel="" target="">
+ <span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./presentation.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About State Constitution Analysis</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/math241s24/project-02-state_constitution" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#updated-upstream" id="toc-updated-upstream" class="nav-link active" data-scroll-target="#updated-upstream">&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream</a>
+  <ul class="collapse">
+  <li><a href="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" id="toc-does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" class="nav-link" data-scroll-target="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution">Does the time a state came into being affect the keywords used in its Constitution?</a></li>
+  <li><a href="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1" id="toc-does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1" class="nav-link" data-scroll-target="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1">Does the time a state came into being affect the keywords used in its Constitution?</a></li>
+  <li><a href="#game-plan" id="toc-game-plan" class="nav-link" data-scroll-target="#game-plan">Game plan</a></li>
+  <li><a href="#ratification-years" id="toc-ratification-years" class="nav-link" data-scroll-target="#ratification-years">Ratification years</a></li>
+  <li><a href="#word-frequencies-virginia" id="toc-word-frequencies-virginia" class="nav-link" data-scroll-target="#word-frequencies-virginia">Word frequencies: Virginia</a></li>
+  <li><a href="#word-frequencies-pennsylvania" id="toc-word-frequencies-pennsylvania" class="nav-link" data-scroll-target="#word-frequencies-pennsylvania">Word frequencies: Pennsylvania</a></li>
+  <li><a href="#word-frequencies-maryland" id="toc-word-frequencies-maryland" class="nav-link" data-scroll-target="#word-frequencies-maryland">Word frequencies: Maryland</a></li>
+  <li><a href="#word-frequencies-new-jersey" id="toc-word-frequencies-new-jersey" class="nav-link" data-scroll-target="#word-frequencies-new-jersey">Word frequencies: New Jersey</a></li>
+  <li><a href="#word-frequencies-new-hampshire" id="toc-word-frequencies-new-hampshire" class="nav-link" data-scroll-target="#word-frequencies-new-hampshire">Word frequencies: New Hampshire</a></li>
+  <li><a href="#word-frequencies-north-carolina" id="toc-word-frequencies-north-carolina" class="nav-link" data-scroll-target="#word-frequencies-north-carolina">Word frequencies: North Carolina</a></li>
+  <li><a href="#word-frequencies-new-york" id="toc-word-frequencies-new-york" class="nav-link" data-scroll-target="#word-frequencies-new-york">Word frequencies: New York</a></li>
+  <li><a href="#word-frequencies-georgia" id="toc-word-frequencies-georgia" class="nav-link" data-scroll-target="#word-frequencies-georgia">Word frequencies: Georgia</a></li>
+  <li><a href="#word-frequencies-south-carolina" id="toc-word-frequencies-south-carolina" class="nav-link" data-scroll-target="#word-frequencies-south-carolina">Word frequencies: South Carolina</a></li>
+  <li><a href="#word-frequencies-massachusetts" id="toc-word-frequencies-massachusetts" class="nav-link" data-scroll-target="#word-frequencies-massachusetts">Word frequencies: Massachusetts</a></li>
+  <li><a href="#word-frequencies-delaware" id="toc-word-frequencies-delaware" class="nav-link" data-scroll-target="#word-frequencies-delaware">Word frequencies: Delaware</a></li>
+  <li><a href="#word-frequencies-connecticut" id="toc-word-frequencies-connecticut" class="nav-link" data-scroll-target="#word-frequencies-connecticut">Word frequencies: Connecticut</a></li>
+  <li><a href="#word-frequencies-rhode-island" id="toc-word-frequencies-rhode-island" class="nav-link" data-scroll-target="#word-frequencies-rhode-island">Word frequencies: Rhode Island</a></li>
+  <li><a href="#keyword-maps" id="toc-keyword-maps" class="nav-link" data-scroll-target="#keyword-maps">Keyword Maps</a></li>
+  <li><a href="#most-common-words-across-all-13-states" id="toc-most-common-words-across-all-13-states" class="nav-link" data-scroll-target="#most-common-words-across-all-13-states">Most common words across all 13 states</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">State Constitution Analysis</h1>
+<p class="subtitle lead">Project 2</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Cassie Minicucci, Katie Riley, and Basil-Anne Stackpole </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="updated-upstream" class="level1">
+<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream</h1>
+<section id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" class="level2">
+<h2 class="anchored" data-anchor-id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution">Does the time a state came into being affect the keywords used in its Constitution?</h2>
+<p>We scraped text from the constitutions of the original 13 colonies and analyzed each for specific keywords.</p>
+<ul>
+<li>Keywords: freedom, liberty, welfare, consent, prohibit, equality, and rights</li>
+</ul>
+</section>
+<section id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1" class="level2">
+<h2 class="anchored" data-anchor-id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1">Does the time a state came into being affect the keywords used in its Constitution?</h2>
+<p>Then, we created an interactive map using a time variable to be able to see when each state was ratified.</p>
+<p>Goal: to understand if the time a state was ratified has a large effect on the language used in the constitution.</p>
+</section>
+<section id="game-plan" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="game-plan">Game plan</h2>
+<ul>
+<li>Scrape text from each constitution and create separate dataframes for each</li>
+<li>Find frequencies of chosen keywords in each constitution</li>
+<li>Also analyze the top 20 words appearing most frequently in each constitution (minus common stop words)</li>
+<li>Create histograms of the most common words</li>
+<li>Link dataframes together into one dataframe to create maps</li>
+<li>Created character variable for each word with what state it was from, then used the tigris package with state geometry to create a map (keywords!)</li>
+<li>Create interactive map!</li>
+</ul>
+</section>
+<section id="ratification-years" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ratification-years">Ratification years</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>state</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Delaware</td>
+<td>1787</td>
+</tr>
+<tr class="even">
+<td>Georgia</td>
+<td>1777</td>
+</tr>
+<tr class="odd">
+<td>Connecticut</td>
+<td>1818</td>
+</tr>
+<tr class="even">
+<td>Maryland</td>
+<td>1776</td>
+</tr>
+<tr class="odd">
+<td>Massachusetts</td>
+<td>1780</td>
+</tr>
+<tr class="even">
+<td>New Hampshire</td>
+<td>1776</td>
+</tr>
+<tr class="odd">
+<td>New Jersey</td>
+<td>1776</td>
+</tr>
+<tr class="even">
+<td>New York</td>
+<td>1777</td>
+</tr>
+<tr class="odd">
+<td>North Carolina</td>
+<td>1776</td>
+</tr>
+<tr class="even">
+<td>Pennsylvania</td>
+<td>1776</td>
+</tr>
+<tr class="odd">
+<td>Rhode Island</td>
+<td>1843</td>
+</tr>
+<tr class="even">
+<td>South Carolina</td>
+<td>1778</td>
+</tr>
+<tr class="odd">
+<td>Virginia</td>
+<td>1776</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="word-frequencies-virginia" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-virginia">Word frequencies: Virginia</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1       government 19
+2            house 19
+3         assembly 16
+4           people 16
+5              sec 15
+6         virginia 15
+7          council 14
+8         governor 14
+9        delegates 13
+10            laws 12
+11          office 11
+12          houses 10
+13          advice  9
+14          county  9
+15             law  9
+16            time  9
+17       vacancies  9
+18        annually  8
+19          courts  8
+20          manner  8
+21           power  8
+22           privy  8
+23 representatives  8
+24          rights  8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-pennsylvania" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-pennsylvania">Word frequencies: Pennsylvania</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1             sect 47
+2         assembly 41
+3     commonwealth 28
+4           people 28
+5          council 24
+6           county 22
+7  representatives 22
+8          freemen 21
+9       government 21
+10          office 20
+11            laws 19
+12            city 17
+13          public 16
+14     legislature 15
+15           power 15
+16          manner 14
+17        officers 14
+18          person 14
+19          chosen 13
+20    constitution 13
+21        counties 13
+22         elected 13
+23            free 13
+24    pennsylvania 13
+25         persons 13
+26            time 13</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-maryland" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-maryland">Word frequencies: Maryland</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1       person 59
+2       office 49
+3     governor 42
+4       county 41
+5    delegates 38
+6      council 35
+7        court 32
+8     assembly 31
+9         time 31
+10    election 29
+11         law 28
+12 legislature 27
+13       house 24
+14  government 21
+15        oath 21
+16     persons 21
+17   aforesaid 20
+18      ballot 20
+19      manner 20
+20       money 18
+21   qualified 18</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-new-jersey" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-new-jersey">Word frequencies: New Jersey</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1          council 28
+2         assembly 26
+3           colony 26
+4         governor 12
+5           county 10
+6           person 10
+7       government  9
+8          elected  8
+9              law  8
+10     legislative  8
+11        officers  8
+12            time  8
+13         charter  7
+14          manner  7
+15   vicepresident  7
+16        election  6
+17          people  6
+18 representatives  6
+19          choose  5
+20        colonies  5
+21        congress  5
+22        counties  5
+23           court  5
+24          office  5
+25         persons  5
+26           power  5
+27        provided  5
+28        province  5
+29          remain  5
+30         supreme  5
+31            vote  5</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-new-hampshire" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-new-hampshire">Word frequencies: New Hampshire</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1          council 12
+2           county 12
+3           colony 11
+4         congress  8
+5        appointed  7
+6         assembly  6
+7            house  6
+8         officers  6
+9           courts  5
+10 representatives  5
+11         britain  4
+12          chosen  4
+13          manner  4
+14          people  4
+15      respective  4
+16     continental  3
+17        continue  3
+18            form  3
+19      government  3
+20          houses  3
+21     inhabitants  3
+22           lives  3
+23      properties  3
+24            time  3
+25         unhappy  3</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-north-carolina" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-north-carolina">Word frequencies: North Carolina</h2>
+<p>Ratification year: 1776</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1            house 27
+2         assembly 24
+3          commons 20
+4           senate 19
+5           office 16
+6         governor 14
+7           county 13
+8       government 12
+9           people 12
+10         council 11
+11          public 11
+12                 10
+13            time 10
+14          ballot  9
+15        election  9
+16            laws  9
+17         liberty  9
+18          person  9
+19    constitution  8
+20             law  8
+21           power  8
+22 representatives  8
+23            seat  8</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-new-york" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-new-york">Word frequencies: New York</h2>
+<p>Ratification year: 1777</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1       people 46
+2  legislature 37
+3         time 29
+4   government 28
+5     assembly 27
+6       county 26
+7    authority 22
+8       senate 22
+9        court 21
+10        york 20
+11  convention 19
+12    governor 19
+13      office 19
+14      colony 18
+15   appointed 17
+16    congress 17
+17        laws 17
+18         day 16
+19   determine 16
+20    senators 16</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-georgia" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-georgia">Word frequencies: Georgia</h2>
+<p>Ratification year: 1777</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              art 62
+2           county 49
+3            house 23
+4         assembly 22
+5          council 22
+6           person 19
+7         governor 18
+8        executive 17
+9     constitution 15
+10 representatives 14
+11        election 13
+12           power 13
+13            laws 12
+14           saint 12
+15            time 12
+16        counties 11
+17           court 10
+18         elected 10
+19         tuesday 10
+20            vote 10</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-south-carolina" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-south-carolina">Word frequencies: South Carolina</h2>
+<p>Ratification year: 1778</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 word  n
+1               house 53
+2     representatives 49
+3              parish 39
+4              senate 39
+5             council 30
+6            governor 30
+7            district 29
+8               privy 28
+9    commanderinchief 22
+10              saint 21
+11             chosen 20
+12             office 18
+13           election 17
+14                law 16
+15 lieutenantgovernor 16
+16             person 15
+17               time 15
+18           assembly 13
+19               seat 13
+20       constitution 12
+21                day 12
+22          religious 12</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-massachusetts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-massachusetts">Word frequencies: Massachusetts</h2>
+<p>Ratification year: 1780</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              art 87
+2     commonwealth 86
+3             time 72
+4         governor 67
+5     constitution 42
+6  representatives 41
+7            court 39
+8       government 38
+9            house 38
+10          public 37
+11          people 36
+12         council 35
+13            laws 35
+14     legislature 35
+15          senate 35
+16        officers 31
+17         persons 30
+18          person 29
+19          manner 27
+20       authority 26
+21         elected 26
+22           power 26</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-delaware" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-delaware">Word frequencies: Delaware</h2>
+<p>Ratification year: 1787</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          word  n
+1          art 59
+2     assembly 42
+3      council 26
+4        house 26
+5       office 25
+6    president 22
+7     election 19
+8       courts 15
+9          day 15
+10        time 15
+11      chosen 14
+12      county 14
+13 legislative 13
+14       privy 13
+15       court 12
+16      manner 12
+17             11
+18    delaware 11
+19    justices 11
+20      common 10</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-connecticut" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-connecticut">Word frequencies: Connecticut</h2>
+<p>Ratification year: 1818</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           word   n
+1           sec 100
+2           art  94
+3      assembly  44
+4     governour  36
+5           law  35
+6         house  25
+7        office  25
+8    amendments  23
+9       altered  22
+10        votes  21
+11            4  20
+12     electors  20
+13       manner  20
+14 constitution  19
+15       person  19
+16         time  19
+17            3  18
+18    secretary  18
+19            6  17
+20            2  15
+21         town  15</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-frequencies-rhode-island" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="word-frequencies-rhode-island">Word frequencies: Rhode Island</h2>
+<p>Ratification year: 1843</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">Most common words</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Histogram</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              word  n
+1              sec 88
+2         assembly 47
+3              law 38
+4           person 35
+5         election 34
+6             time 34
+7             town 33
+8     constitution 30
+9           office 29
+10            city 28
+11        governor 27
+12           house 26
+13            vote 22
+14         elected 18
+15        officers 18
+16 representatives 17
+17         article 14
+18           court 14
+19        military 14
+20          people 14
+21       secretary 14</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="keyword-maps" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="keyword-maps">Keyword Maps</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true">Freedom</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Liberty</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-3" role="tab" aria-controls="tabset-14-3" aria-selected="false">Welfare</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-4" role="tab" aria-controls="tabset-14-4" aria-selected="false">Consent</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-5" role="tab" aria-controls="tabset-14-5" aria-selected="false">Prohibit</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-6" role="tab" aria-controls="tabset-14-6" aria-selected="false">Equality</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-7" role="tab" aria-controls="tabset-14-7" aria-selected="false">Rights</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-4-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-5-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-6-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+<div id="tabset-14-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-7-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="most-common-words-across-all-13-states" class="level2">
+<h2 class="anchored" data-anchor-id="most-common-words-across-all-13-states">Most common words across all 13 states</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="presentation_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<ul>
+<li>The most common words have to do with administration rather than ideology</li>
+<li>Ex. section, article, council, county, government, people</li>
+<li>Even though the map is a useful visualization, there don’t seem to be geographical trends &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

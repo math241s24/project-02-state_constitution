@@ -15,6 +15,15 @@ execute:
 #| include: false
 
 library(tidyverse)
+library(rvest)
+library(dplyr)
+library(tidytext)
+library(stringr)
+library(ggplot2)
+library(forcats)
+library(tmap)
+library(tigris)
+library(tidyr)
 ```
 
 ```{r}
