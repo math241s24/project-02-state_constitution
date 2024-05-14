@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -46,7 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -55,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -68,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Project 2 - State Constitution Analysis</span>
     </a>
@@ -82,40 +89,40 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./stateconsapp.R" rel="" target="">
- <span class="menu-text">Interactive map</span></a>
+    <a class="nav-link" href="./stateconsapp.R"> 
+<span class="menu-text">Interactive map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./statecons.html" rel="" target="">
- <span class="menu-text">Histograms (State and Federal)</span></a>
+    <a class="nav-link" href="./statecons.html"> 
+<span class="menu-text">Histograms (State and Federal)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Write-up</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Write-up</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./proposal.html" rel="" target="">
- <span class="menu-text">Proposal</span></a>
+    <a class="nav-link" href="./proposal.html"> 
+<span class="menu-text">Proposal</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./presentation.html" rel="" target="" aria-current="page">
- <span class="menu-text">Presentation</span></a>
+    <a class="nav-link active" href="./presentation.html" aria-current="page"> 
+<span class="menu-text">Presentation</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About State Constitution Analysis</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About State Constitution Analysis</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/math241s24/project-02-state_constitution" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/math241s24/project-02-state_constitution"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -128,9 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#updated-upstream" id="toc-updated-upstream" class="nav-link active" data-scroll-target="#updated-upstream">&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream</a>
-  <ul class="collapse">
-  <li><a href="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" id="toc-does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" class="nav-link" data-scroll-target="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution">Does the time a state came into being affect the keywords used in its Constitution?</a></li>
+  <li><a href="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" id="toc-does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" class="nav-link active" data-scroll-target="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution">Does the time a state came into being affect the keywords used in its Constitution?</a></li>
   <li><a href="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1" id="toc-does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1" class="nav-link" data-scroll-target="#does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution-1">Does the time a state came into being affect the keywords used in its Constitution?</a></li>
   <li><a href="#game-plan" id="toc-game-plan" class="nav-link" data-scroll-target="#game-plan">Game plan</a></li>
   <li><a href="#ratification-years" id="toc-ratification-years" class="nav-link" data-scroll-target="#ratification-years">Ratification years</a></li>
@@ -150,7 +155,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#keyword-maps" id="toc-keyword-maps" class="nav-link" data-scroll-target="#keyword-maps">Keyword Maps</a></li>
   <li><a href="#most-common-words-across-all-13-states" id="toc-most-common-words-across-all-13-states" class="nav-link" data-scroll-target="#most-common-words-across-all-13-states">Most common words across all 13 states</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
-  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -179,10 +183,10 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<section id="updated-upstream" class="level1">
-<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream</h1>
+
 <section id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution" class="level2">
 <h2 class="anchored" data-anchor-id="does-the-time-a-state-came-into-being-affect-the-keywords-used-in-its-constitution">Does the time a state came into being affect the keywords used in its Constitution?</h2>
 <p>We scraped text from the constitutions of the original 13 colonies and analyzed each for specific keywords.</p>
@@ -322,7 +326,11 @@ ul.task-list li input[type="checkbox"] {
 of ggplot2 3.3.4.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -377,7 +385,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -427,7 +439,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -487,7 +503,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -541,7 +561,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -593,7 +617,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -642,7 +670,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -691,7 +723,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -742,7 +778,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -793,7 +833,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -842,7 +886,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -892,7 +940,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -942,7 +994,11 @@ of ggplot2 3.3.4.</code></pre>
 <pre><code>Selecting by n</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -957,49 +1013,77 @@ of ggplot2 3.3.4.</code></pre>
 <div id="tabset-14-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-14-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-2-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-3-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-4-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-5-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-6-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div id="tabset-14-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-14-7-tab">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -1010,7 +1094,11 @@ of ggplot2 3.3.4.</code></pre>
 <h2 class="anchored" data-anchor-id="most-common-words-across-all-13-states">Most common words across all 13 states</h2>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="presentation_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" style="width:70.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="presentation_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1019,11 +1107,10 @@ of ggplot2 3.3.4.</code></pre>
 <ul>
 <li>The most common words have to do with administration rather than ideology</li>
 <li>Ex. section, article, council, county, government, people</li>
-<li>Even though the map is a useful visualization, there don’t seem to be geographical trends &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</li>
+<li>Even though the map is a useful visualization, there don’t seem to be geographical trends</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1106,10 +1193,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1119,8 +1205,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1133,6 +1228,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1176,6 +1390,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1201,6 +1416,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1261,6 +1502,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

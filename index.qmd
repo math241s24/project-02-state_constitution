@@ -21,6 +21,8 @@ We decided to create a ShinyApp that shows the frequency of our keywords for eac
 Our process began by scraping the data and cleaning it. An example of this process, here applied to the Virginia state constitution, is below:
 
 ```{r}
+library(tidyverse)
+library(rvest)
 va_url <- "https://www.wordservice.org/State%20Constitutions/usa1025.htm"
 va_html <- read_html(va_url)
 
